@@ -1,7 +1,25 @@
+  default_view:
+    view: yes
+    entities:
+      - group.light_control
+      - group.wakeup_light
+      - group.hass_control
+
+  # Lights
+  light_control:
+    name: Light
+    entities:
+      - light.vardagsrum_tak
+      - light.tak_1
+      - light.tak_2
+      - light.tak_3
+      - light.hue_vardagsrum
+      - light.hue_sovrum
+
   # Wakeup Light
-  wakeuplight:
+  wakeup_light:
     name: Wakeup Light
-    # control: hidden
+    control: hidden
     entities:
       - sensor.wakeup_alarm_time
       - sensor.wakeup_start_time_lights
@@ -11,3 +29,13 @@
       - input_number.wakeup_duration
       - input_boolean.wakeup
       - input_boolean.wakeup_weekends
+
+  # Hass control
+  hass_control:
+    name: Home Assistant control
+    control: hidden
+    entities:
+      - script.restart_ha
+      - script.reload_groups
+      - script.reload_automations
+      - script.reload_scripts
