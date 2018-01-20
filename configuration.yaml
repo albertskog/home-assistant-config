@@ -13,9 +13,6 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
 
-# Show links to resources in log and frontend
-introduction:
-
 # Enables the frontend
 frontend:
 
@@ -39,6 +36,8 @@ updater:
 
 # Discover some devices automatically
 discovery:
+  ignore:
+    - philips_hue
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
