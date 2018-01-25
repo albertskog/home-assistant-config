@@ -71,3 +71,6 @@ script: !include scripts.yaml
 # Inputs
 input_number: !include input_number.yaml
 input_boolean: !include input_boolean.yaml
+
+# Apple TV
+apple_tv:
