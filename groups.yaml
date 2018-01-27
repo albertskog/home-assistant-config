@@ -4,6 +4,7 @@
       - group.light_control
       - group.wakeup_light
       - group.hass_control
+      - media_player.apple_tv
 
   # Lights
   light_control:
