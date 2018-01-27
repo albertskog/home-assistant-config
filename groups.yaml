@@ -20,6 +20,7 @@
   light_all:
     name: Light
     entities:
+      - light.hue_sovrum
       - light.vardagsrum_tak
       - light.tak_1
       - light.tak_2
@@ -28,7 +29,8 @@
       - switch.cupboard_light
       - switch.tv_light
       - switch.sofa_light
-      - light.hue_sovrum
+      - switch.hallway_ceiling_light
+      - switch.hallway_wall_light
   
   light_livingroom:
     name: Livingroom
@@ -49,6 +51,8 @@
       
   light_hallway:
     entities:
+      - switch.hallway_ceiling_light
+      - switch.hallway_wall_light
 
 
   # Wakeup Light
