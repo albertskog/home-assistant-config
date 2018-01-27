@@ -1,13 +1,23 @@
   default_view:
     view: yes
     entities:
-      - group.light_control
+      - group.light_all
       - group.wakeup_light
       - group.hass_control
       - media_player.apple_tv
+      - switch.heater_livingroom
+      - switch.coffee_maker
+
+  lights:
+    name: Light
+    view: yes
+    entities:
+      - group.light_livingroom
+      - group.light_bedroom
+      - group.light_hallway
 
   # Lights
-  light_control:
+  light_all:
     name: Light
     entities:
       - light.vardagsrum_tak
@@ -15,7 +25,31 @@
       - light.tak_2
       - light.tak_3
       - light.hue_vardagsrum
+      - switch.cupboard_light
+      - switch.tv_light
+      - switch.sofa_light
       - light.hue_sovrum
+  
+  light_livingroom:
+    name: Livingroom
+    entities:
+      - light.vardagsrum_tak
+      - light.tak_1
+      - light.tak_2
+      - light.tak_3
+      - light.hue_vardagsrum
+      - switch.cupboard_light
+      - switch.tv_light
+      - switch.sofa_light 
+
+  light_bedroom:
+    name: Bedroom
+    entities:
+      - light.hue_sovrum
+      
+  light_hallway:
+    entities:
+
 
   # Wakeup Light
   wakeup_light:
