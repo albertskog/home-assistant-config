@@ -7,6 +7,7 @@
       - media_player.apple_tv
       - switch.heater_livingroom
       - switch.coffee_maker
+      - script.tv_off
 
   lights:
     name: Light
@@ -29,6 +30,7 @@
       - switch.cupboard_light
       - switch.tv_light
       - switch.sofa_light
+      - switch.plant_light
       - switch.hallway_ceiling_light
       - switch.hallway_wall_light
   
@@ -42,7 +44,8 @@
       - light.hue_vardagsrum
       - switch.cupboard_light
       - switch.tv_light
-      - switch.sofa_light 
+      - switch.sofa_light
+      - switch.plant_light
 
   light_bedroom:
     name: Bedroom
