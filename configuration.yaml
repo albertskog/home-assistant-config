@@ -79,3 +79,6 @@ apple_tv: !include apple_tv.yaml
 tellstick:
     host: core-tellstick
     port: [50800, 50801]
+
+# Zones
+zone: !include zone.yaml

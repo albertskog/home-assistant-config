@@ -1,0 +1,9 @@
+  - name: Telia
+    latitude: 59.952015
+    longitude: 10.767217
+    radius: 200
+
+  - name: Mogi
+    latitude: 59.915008
+    longitude: 10.717971
+    radius: 200
