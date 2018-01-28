@@ -21,6 +21,79 @@
     sequence:
       - alias: Reload-Scripts
         service: script.reload
+  # TV
+  tv_off:
+    alias: 'TV off'
+    sequence:
+      - service: remote.send_command
+        data_template:
+          entity_id: remote.apple_tv
+          command: top_menu
+      - delay: 00:00:01
+      - service: remote.send_command
+        data_template:
+          entity_id: remote.apple_tv
+          command: menu
+      - delay: 00:00:01
+      - service: remote.send_command
+        data_template:
+          entity_id: remote.apple_tv
+          command: left
+      - delay: 00:00:01
+      - service: remote.send_command
+        data_template:
+          entity_id: remote.apple_tv
+          command: [down, down, right, right, right, select, menu]
+      - delay: 00:00:02
+      - service: remote.send_command
+        data_template:
+          entity_id: remote.apple_tv
+          command: menu
+      - delay: 00:00:01
+      - service: remote.send_command
+        data_template:
+          entity_id: remote.apple_tv
+          command: menu
+      - delay: 00:00:01
+      - service: remote.send_command
+        data_template:
+          entity_id: remote.apple_tv
+          command: menu
+      - delay: 00:00:01
+      - service: remote.send_command
+        data_template:
+          entity_id: remote.apple_tv
+          command: menu
+      - delay: 00:00:01
+      - service: remote.send_command
+        data_template:
+          entity_id: remote.apple_tv
+          command: menu
+      - delay: 00:00:01
+      - service: remote.send_command
+        data_template:
+          entity_id: remote.apple_tv
+          command: menu
+      - delay: 00:00:01
+      - service: remote.send_command
+        data_template:
+          entity_id: remote.apple_tv
+          command: left
+      - delay: 00:00:01
+      - service: remote.send_command
+        data_template:
+          entity_id: remote.apple_tv
+          command: [down, down, right, right, right, select]
+      - delay: 00:00:01
+      - service: remote.send_command
+        data_template:
+          entity_id: remote.apple_tv
+          command: [down, down, down, down, down, down, down, down]
+      - delay: 00:00:01
+      - service: remote.send_command
+        data_template:
+          entity_id: remote.apple_tv
+          command: select
 
   # Wakeup Light
   wakeup_bedroom:
