@@ -25,32 +25,10 @@
         - fri
   action:
     service: script.wakeup_bedroom
-- action:
-  - data:
-      brightness: 1
-      color_temp: 250
-      entity_id:
-      - light.tak_1
-      - light.tak_2
-      - light.tak_3
-      - light.hue_vardagsrum
-    service: light.turn_on
-  - data:
-      entity_id:
-      - switch.plant_light
-      - switch.cupboard_light
-    service: switch.turn_on
-  - data:
-      brightness: 100
-      color_temp: 250
-      entity_id:
-      - light.tak_1
-      - light.tak_2
-      - light.tak_3
-      - light.hue_vardagsrum
-      transition: 2700
-    service: light.turn_on
-  alias: Weekday Morning On
+
+- alias: Weekday Morning On
+  action:
+    service: script.scene_morning
   condition:
   - condition: time
     weekday:
@@ -63,10 +41,11 @@
   trigger:
   - at: 05:30
     platform: time
+
 - action:
   - data:
       entity_id:
-      - light.tak_1
+      # - light.tak_1
       - light.tak_2
       - light.tak_3
       - light.hue_vardagsrum
@@ -95,13 +74,14 @@
       brightness: 80
       color_temp: 450
       entity_id:
-      - light.tak_1
+      # - light.tak_1
       - light.tak_2
       - light.tak_3
     service: light.turn_on
   alias: Evening Light On
   condition:
   - after: sunset
+    after_offset: -01:00:00
     condition: sun
   id: '1517169567056'
   trigger:
@@ -113,3 +93,43 @@
     event: enter
     platform: zone
     zone: zone.home
+- action:
+  - data:
+      entity_id: switch.heater_livingroom
+    service: switch.turn_on
+  alias: Heating Morning On
+  condition: []
+  id: '1517551858893'
+  trigger:
+  - at: 05:00
+    platform: time
+- action:
+  - data:
+      entity_id: switch.heater_livingroom
+    service: switch.turn_off
+  alias: Heating Morning Off
+  condition: []
+  id: '1517551936701'
+  trigger:
+  - at: 07:30
+    platform: time
+- action:
+  - data:
+      entity_id: switch.heater_livingroom
+    service: switch.turn_on
+  alias: Heating Evening On
+  condition: []
+  id: '1517551977011'
+  trigger:
+  - at: '16:00'
+    platform: time
+- action:
+  - data:
+      entity_id: switch.heater_livingroom
+    service: switch.turn_off
+  alias: Heating Evening Off
+  condition: []
+  id: '1517552024666'
+  trigger:
+  - at: '21:30'
+    platform: time
