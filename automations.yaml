@@ -45,7 +45,7 @@
 - action:
   - data:
       entity_id:
-      # - light.tak_1
+      - light.tak_1
       - light.tak_2
       - light.tak_3
       - light.hue_vardagsrum
@@ -74,7 +74,7 @@
       brightness: 80
       color_temp: 450
       entity_id:
-      # - light.tak_1
+      - light.tak_1
       - light.tak_2
       - light.tak_3
     service: light.turn_on
