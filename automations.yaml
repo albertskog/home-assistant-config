@@ -69,14 +69,16 @@
   - event: sunrise
     offset: 01:00:00
     platform: sun
+
 - action:
   - data:
       brightness: 80
       color_temp: 450
       entity_id:
-      - light.tak_1
-      - light.tak_2
-      - light.tak_3
+      # - light.tak_1
+      # - light.tak_2
+      # - light.tak_3
+      - light.hue_sovrum
     service: light.turn_on
   alias: Evening Light On
   condition:
@@ -85,14 +87,10 @@
     condition: sun
   id: '1517169567056'
   trigger:
-  - entity_id: device_tracker.alberts_iphone
-    event: enter
-    platform: zone
-    zone: zone.home
-  - entity_id: device_tracker.astrid_sin_iphone
-    event: enter
-    platform: zone
-    zone: zone.home
+  - entity_id: group.all_devices
+    to: 'home'
+    platform: state
+
 - action:
   - data:
       entity_id: switch.heater_livingroom
