@@ -131,7 +131,7 @@
 
       - service: switch.turn_off
         data_template:
-          entity_id: switch.tv_light, switch.cupboard_light
+          entity_id: switch.tv_light, switch.cupboard_light, switch.plant_light
 
       - service: light.turn_on
         data_template:
