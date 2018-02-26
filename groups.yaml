@@ -2,6 +2,7 @@
     name: Home
     view: yes
     entities:
+      - group.modes
       - group.light_all
       - group.wakeup_light
       - group.hass_control
@@ -9,7 +10,6 @@
       - switch.heater_livingroom
       - switch.coffee_maker
       - script.tv_off
-      - group.modes
       - device_tracker.alberts_iphone
       - device_tracker.astrid_sin_iphone
 
@@ -23,6 +23,7 @@
 
   modes:
     name: Modes
+    control: hidden
     entities:
       - script.scene_daytime
       - script.scene_evening
