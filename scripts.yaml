@@ -40,7 +40,8 @@
           entity_id:
           - switch.plant_light
           - switch.cupboard_light
-        
+      - delay: '00:{{ states.input_number.wakeup_duration.state | int }}:00'
+
       - service: light.turn_on
         data_template:
           brightness_pct: 100
@@ -50,7 +51,7 @@
           - light.tak_2
           - light.tak_3
           - light.hue_vardagsrum
-          transition: 2700
+          transition: 1800
 
   scene_daytime:
     alias: Leave for the day
