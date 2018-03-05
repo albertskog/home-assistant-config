@@ -25,7 +25,6 @@
         - fri
   action:
     service: script.wakeup_bedroom
-
 - alias: Weekday Morning On
   action:
     service: script.scene_morning
@@ -41,7 +40,6 @@
   trigger:
   - at: 05:30
     platform: time
-
 - action:
   - data:
       entity_id:
@@ -69,15 +67,11 @@
   - event: sunrise
     offset: 01:00:00
     platform: sun
-
 - action:
   - data:
       brightness: 80
       color_temp: 450
       entity_id:
-      # - light.tak_1
-      # - light.tak_2
-      # - light.tak_3
       - light.hue_sovrum
     service: light.turn_on
   alias: Evening Light On
@@ -88,9 +82,8 @@
   id: '1517169567056'
   trigger:
   - entity_id: group.all_devices
-    to: 'home'
+    to: home
     platform: state
-
 - action:
   - data:
       entity_id: switch.heater_livingroom
@@ -131,3 +124,32 @@
   trigger:
   - at: '21:30'
     platform: time
+- action:
+  - data:
+      color_temp: 370
+      entity_id:
+      - light_tak_1
+      - light_tak_2
+      - light_tak_3
+    service: light.turn_on
+  alias: Sunset temperature change 1
+  condition: []
+  id: '1520144586626'
+  trigger:
+  - event: sunset
+    platform: sun
+- action:
+  - data:
+      color_temp: 457
+      entity_id:
+      - light_tak_1
+      - light_tak_2
+      - light_tak_3
+    service: light.turn_on
+  alias: Sunset temperature change 2
+  condition: []
+  id: '1520144636923'
+  trigger:
+  - event: sunset
+    offset: '2:00:00'
+    platform: sun
