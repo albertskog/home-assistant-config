@@ -85,3 +85,7 @@ zone: !include zone.yaml
 
 # Device tracker
 device_tracker: !include device_tracker.yaml
+
+# HomeKit
+homekit:
+  pincode: !secret homekit_pin

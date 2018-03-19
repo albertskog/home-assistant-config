@@ -68,12 +68,8 @@
     offset: 01:00:00
     platform: sun
 - action:
-  - data:
-      brightness: 80
-      color_temp: 450
-      entity_id:
-      - light.hue_sovrum
-    service: light.turn_on
+  - data: {}
+    service: script.scene_evening
   alias: Evening Light On
   condition:
   - after: sunset
@@ -81,9 +77,14 @@
     condition: sun
   id: '1517169567056'
   trigger:
-  - entity_id: group.all_devices
-    to: home
+  - entity_id: device_tracker.alberts_iphone
+    from: away
     platform: state
+    to: home
+  - entity_id: device_tracker.astrid_sin_iphone
+    from: away
+    platform: state
+    to: home
 - action:
   - data:
       entity_id: switch.heater_livingroom
