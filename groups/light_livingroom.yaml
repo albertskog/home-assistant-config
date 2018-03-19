@@ -1,0 +1,11 @@
+name: Livingroom
+entities:
+  - light.vardagsrum_tak
+  - light.tak_1
+  - light.tak_2
+  - light.tak_3
+  - light.hue_vardagsrum
+  - switch.cupboard_light
+  - switch.tv_light
+  - switch.sofa_light
+  - switch.plant_light

@@ -1,0 +1,6 @@
+name: Modes
+control: hidden
+entities:
+  - script.scene_daytime
+  - script.scene_evening
+  - script.scene_night

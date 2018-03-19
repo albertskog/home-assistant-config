@@ -1,0 +1,7 @@
+name: Home Assistant control
+control: hidden
+entities:
+  - script.restart_ha
+  - script.reload_groups
+  - script.reload_automations
+  - script.reload_scripts

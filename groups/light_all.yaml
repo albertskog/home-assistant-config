@@ -1,0 +1,14 @@
+name: Light
+entities:
+  - light.hue_sovrum
+  - light.vardagsrum_tak
+  - light.tak_1
+  - light.tak_2
+  - light.tak_3
+  - light.hue_vardagsrum
+  - switch.cupboard_light
+  - switch.tv_light
+  - switch.sofa_light
+  - switch.plant_light
+  - switch.hallway_ceiling_light
+  - switch.hallway_wall_light

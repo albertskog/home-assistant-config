@@ -64,7 +64,7 @@ tts:
 # Cloud
 cloud:
 
-group: !include groups.yaml
+group: !include_dir_named groups
 automation: !include automations.yaml
 script: !include scripts.yaml
 

@@ -1,6 +1,6 @@
 *
 !*.yaml
-!scenes
+!groups
 !.gitignore
 !.HA_VERSION
 secrets.yaml
