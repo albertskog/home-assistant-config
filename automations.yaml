@@ -154,3 +154,18 @@
   - event: sunset
     offset: '2:00:00'
     platform: sun
+
+- action:
+  - data_template:
+      entity_id: input_number.wakeup_hour 
+      value: '{{trigger["payload_json"]["alarm_time"][0]}}'
+    service: input_number.set_value
+  - data_template:
+      entity_id: input_number.wakeup_minutes 
+      value: '{{trigger["payload_json"]["alarm_time"][1]}}'
+    service: input_number.set_value
+  id: '1520145586600'
+  alias: Move Alarm
+  trigger:
+    platform: mqtt
+    topic: "alarm_clock"
