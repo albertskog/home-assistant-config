@@ -168,3 +168,23 @@
   trigger:
     platform: mqtt
     topic: "alarm_clock"
+
+- action:
+  - data_template:
+      entity_id: '{{"input_boolean.wakeup" if not trigger["payload_json"]["alarm_is_enabled"]}}'
+    service: input_boolean.turn_off
+  id: '1520145586601'
+  alias: Disable Alarm
+  trigger:
+    platform: mqtt
+    topic: "alarm_clock"
+
+- action:
+  - data_template:
+      entity_id: '{{"input_boolean.wakeup" if trigger["payload_json"]["alarm_is_enabled"]}}'
+    service: input_boolean.turn_on
+  id: '1520145586602'
+  alias: Enable Alarm
+  trigger:
+    platform: mqtt
+    topic: "alarm_clock"
