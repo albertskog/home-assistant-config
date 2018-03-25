@@ -1,6 +1,8 @@
 *
 !*.yaml
+._*
 !groups
+!groups/views
 !.gitignore
 !.HA_VERSION
 secrets.yaml
