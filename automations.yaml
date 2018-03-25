@@ -67,7 +67,7 @@
     offset: 02:00:00
     platform: sun
 - action:
-  - data:
+  - data: {}
     service: script.scene_evening
   alias: Evening Light On
   condition:
@@ -77,11 +77,11 @@
   id: '1517169567056'
   trigger:
   - entity_id: device_tracker.alberts_iphone
-    from: away
+    from: not_home
     platform: state
     to: home
   - entity_id: device_tracker.astrid_sin_iphone
-    from: away
+    from: not_home
     platform: state
     to: home
 - action:
