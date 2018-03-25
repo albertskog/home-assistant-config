@@ -4,6 +4,12 @@
       - alias: Restart HA
         service: homeassistant.restart
 
+  reload_core:
+    alias: Reload Core Config
+    sequence:
+      - alias: Reload-Core
+        service: homeassistant.reload_core_config
+
   reload_groups:
     alias: Reload Groups
     sequence:
