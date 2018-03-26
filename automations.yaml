@@ -170,33 +170,39 @@
     topic: "alarm_clock"
 
 - action:
-  - data_template:
-      entity_id: '{{"input_boolean.wakeup" if not trigger["payload_json"]["alarm_is_enabled"]}}'
+  - data:
+      entity_id: input_boolean.wakeup
     service: input_boolean.turn_off
   id: '1520145586601'
   alias: Disable Wakeup
+  condition:
+    - condition: template
+      value_template: '{{ trigger["payload_json"]["alarm_is_enabled"] == false }}'
   trigger:
     platform: mqtt
     topic: "alarm_clock"
 
 - action:
-  - data_template:
-      entity_id: '{{"input_boolean.wakeup" if trigger["payload_json"]["alarm_is_enabled"]}}'
+  - data:
+      entity_id: input_boolean.wakeup
     service: input_boolean.turn_on
   id: '1520145586602'
   alias: Enable Wakeup
+  condition:
+    - condition: template
+      value_template: '{{ trigger["payload_json"]["alarm_is_enabled"] == true }}'
   trigger:
     platform: mqtt
     topic: "alarm_clock"
 
-- action:
-  - data_template:
-      topic: alarm_clock/command
-      payload: '{"command":"toggle_alarm"}'
-      retain: false
-    service: mqtt.publish
-  id: '1520145586603'
-  alias: Move Alarm
-  trigger:
-    platform: state
-    entity_id: input_boolean.wakeup
+# - action:
+#   - data_template:
+#       topic: alarm_clock/command
+#       payload: '{"command":"toggle_alarm"}'
+#       retain: false
+#     service: mqtt.publish
+#   id: '1520145586603'
+#   alias: Move Alarm
+#   trigger:
+#     platform: state
+#     entity_id: input_boolean.wakeup
