@@ -5,23 +5,21 @@
     platform: template
     value_template: '{{states.sensor.time.state == states.sensor.wakeup_start_time_lights.state}}'
   condition:
-    condition: and
-    conditions:
     - condition: state
       entity_id: input_boolean.wakeup
       state: 'on'
     - condition: or
       conditions:
-      - condition: state
-        entity_id: input_boolean.wakeup_weekends
-        state: 'on'
-      - condition: time
-        weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
+        - condition: state
+          entity_id: input_boolean.wakeup_weekends
+          state: 'on'
+        - condition: time
+          weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
   action:
     service: script.wakeup_bedroom
 - alias: Weekday Morning On
@@ -79,11 +77,11 @@
   - entity_id: device_tracker.alberts_iphone
     from: not_home
     platform: state
-    to: home
+    to: 'home'
   - entity_id: device_tracker.astrid_sin_iphone
     from: not_home
     platform: state
-    to: home
+    to: 'home'
 - action:
   - data:
       entity_id: switch.heater_livingroom
@@ -175,13 +173,12 @@
     service: input_boolean.turn_off
   id: '1520145586601'
   alias: Disable Wakeup
-  condition: and
-    conditions:
-      - condition: state
-        entity_id: input_boolean.wakeup
-        state: on
-      - condition: template
-        value_template: '{{ trigger["payload_json"]["alarm_is_enabled"] == false }}'
+  condition:
+    - condition: state
+      entity_id: input_boolean.wakeup
+      state: 'on'
+    - condition: template
+      value_template: '{{ trigger["payload_json"]["alarm_is_enabled"] == false }}'
   trigger:
     platform: mqtt
     topic: "alarm_clock"
@@ -193,13 +190,11 @@
   id: '1520145586602'
   alias: Enable Wakeup
   condition:
-    condition: and
-      conditions:
-        - condition: state
-          entity_id: input_boolean.wakeup
-          state: off
-        - condition: template
-          value_template: '{{ trigger["payload_json"]["alarm_is_enabled"] == true }}'
+    - condition: state
+      entity_id: input_boolean.wakeup
+      state: 'off'
+    - condition: template
+      value_template: '{{ trigger["payload_json"]["alarm_is_enabled"] == true }}'
   trigger:
     platform: mqtt
     topic: "alarm_clock"
