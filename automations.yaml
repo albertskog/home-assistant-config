@@ -87,7 +87,10 @@
       entity_id: switch.heater_livingroom
     service: switch.turn_on
   alias: Heating Morning On
-  condition: []
+  condition:
+    - condition: state
+      entity_id: input_boolean.heating
+      state: 'on'
   id: '1517551858893'
   trigger:
   - at: 05:00
@@ -97,7 +100,10 @@
       entity_id: switch.heater_livingroom
     service: switch.turn_off
   alias: Heating Morning Off
-  condition: []
+  condition:
+    - condition: state
+      entity_id: input_boolean.heating
+      state: 'on'
   id: '1517551936701'
   trigger:
   - at: 07:30
@@ -107,7 +113,10 @@
       entity_id: switch.heater_livingroom
     service: switch.turn_on
   alias: Heating Evening On
-  condition: []
+  condition:
+    - condition: state
+      entity_id: input_boolean.heating
+      state: 'on'
   id: '1517551977011'
   trigger:
   - at: '16:00'
@@ -117,7 +126,10 @@
       entity_id: switch.heater_livingroom
     service: switch.turn_off
   alias: Heating Evening Off
-  condition: []
+  condition:
+    - condition: state
+      entity_id: input_boolean.heating
+      state: 'on'
   id: '1517552024666'
   trigger:
   - at: '21:30'

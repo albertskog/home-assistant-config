@@ -1,0 +1,5 @@
+name: Heating
+view: yes
+entities:
+  - input_boolean.heating
+  - switch.heater_livingroom
