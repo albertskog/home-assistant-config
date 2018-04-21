@@ -2,11 +2,7 @@ name: Home
 view: yes
 entities:
   - group.modes
-  - group.light_all
-  - group.wakeup_light
-  - group.hass_control
   - media_player.apple_tv
-  - switch.heater_livingroom
   - switch.coffee_maker
   - script.tv_off
   - device_tracker.alberts_iphone

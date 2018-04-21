@@ -4,3 +4,4 @@ entities:
   - group.light_livingroom
   - group.light_bedroom
   - group.light_hallway
+  - group.wakeup_light
