@@ -2,14 +2,12 @@
 wakeup:
   name: 'Enable wakeup light'
   icon: mdi:power
-  initial: on
+
 wakeup_weekends:
   name: 'Wakeup weekends'
   icon: mdi:power
-  initial: off
 
 # Heating control
 heating:
   name: 'Enable heating automation'
   icon: mdi:power
-  initial: off

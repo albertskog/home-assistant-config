@@ -69,8 +69,9 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 
 # Inputs
-input_number: !include input_number.yaml
-input_boolean: !include input_boolean.yaml
+input_number: !include input/input_number.yaml
+input_boolean: !include input/input_boolean.yaml
+input_datetime: !include input/input_datetime.yaml
 
 # Apple TV
 apple_tv: !include apple_tv.yaml
@@ -96,3 +97,6 @@ ios:
 # MQTT
 mqtt:
     broker: localhost
+
+# History and retention
+recorder: !include recorder.yaml

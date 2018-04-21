@@ -2,21 +2,18 @@
   wakeup_hour:
     name: Hour
     icon: mdi:clock-in
-    initial: 6
     min: 0
     max: 23
     step: 1
   wakeup_minutes:
     name: Minutes
     icon: mdi:clock-in
-    initial: 0
     min: 0
     max: 55
     step: 5
   wakeup_duration:
     name: Light fade-in duration
     icon: mdi:clock-in
-    initial: 30
     min: 5
     max: 60
     step: 5

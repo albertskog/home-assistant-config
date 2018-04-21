@@ -93,8 +93,8 @@
       state: 'on'
   id: '1517551858893'
   trigger:
-  - at: 05:00
-    platform: time
+    platform: template
+    value_template: "{{ states('sensor.time') == (states.input_datetime.heating_mortning_start.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
 - action:
   - data:
       entity_id: switch.heater_livingroom
@@ -106,8 +106,8 @@
       state: 'on'
   id: '1517551936701'
   trigger:
-  - at: 07:30
-    platform: time
+    platform: template
+    value_template: "{{ states('sensor.time') == (states.input_datetime.heating_mortning_end.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
 - action:
   - data:
       entity_id: switch.heater_livingroom
@@ -119,8 +119,8 @@
       state: 'on'
   id: '1517551977011'
   trigger:
-  - at: '16:00'
-    platform: time
+    platform: template
+    value_template: "{{ states('sensor.time') == (states.input_datetime.heating_evening_start.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
 - action:
   - data:
       entity_id: switch.heater_livingroom
@@ -132,8 +132,8 @@
       state: 'on'
   id: '1517552024666'
   trigger:
-  - at: '21:30'
-    platform: time
+    platform: template
+    value_template: "{{ states('sensor.time') == (states.input_datetime.heating_evening_end.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
 - action:
   - data:
       color_temp: 370
