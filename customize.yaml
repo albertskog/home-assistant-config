@@ -1,8 +1,6 @@
 group.default_view:
   order: 10
 group.lights:
-  order: 20
-group.lights:
   order: 30
 group.heating:
   order: 40
