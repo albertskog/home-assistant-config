@@ -60,16 +60,21 @@
           transition: 1800
 
   scene_daytime:
-    alias: Leave for the day
+    alias: Away
     sequence:
-      - service: light.turn_on
+      - service: light.turn_off
         data_template:
-          entity_id: light.hue_sovrum
-          brightness: 0
+          entity_id:
+          - light.hue_sovrum
+          - light.hue_vardagsrum
 
       - service: switch.turn_off
         data_template:
-          entity_id: switch.tv_light, switch.cupboard_light
+          entity_id:
+          - switch.tv_light
+          - switch.cupboard_light
+          - switch.plant_light
+          - switch.coffee_maker
 
       - service: light.turn_on
         data_template:
