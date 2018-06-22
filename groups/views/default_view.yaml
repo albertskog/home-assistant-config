@@ -3,7 +3,7 @@ view: yes
 entities:
   - group.modes
   - media_player.apple_tv
-  - switch.coffee_maker
+  - switch.coffee_maker_new
   - script.tv_off
   - device_tracker.alberts_iphone
   - device_tracker.astrid_sin_iphone

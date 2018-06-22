@@ -7,7 +7,7 @@ entities:
   - light.tak_3
   - light.hue_vardagsrum
   - switch.cupboard_light
-  - switch.tv_light
+  - switch.tv_light_new
   - switch.sofa_light
   - switch.plant_light
   - switch.hallway_ceiling_light

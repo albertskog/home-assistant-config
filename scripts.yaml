@@ -71,10 +71,10 @@
       - service: switch.turn_off
         data_template:
           entity_id:
-          - switch.tv_light
+          - switch.tv_light_new
           - switch.cupboard_light
           - switch.plant_light
-          - switch.coffee_maker
+          - switch.coffee_maker_new
 
       - service: light.turn_on
         data_template:
@@ -147,7 +147,7 @@
 
       - service: switch.turn_off
         data_template:
-          entity_id: switch.tv_light, switch.cupboard_light, switch.plant_light
+          entity_id: switch.tv_light_new, switch.cupboard_light, switch.plant_light
 
       - service: light.turn_on
         data_template:
