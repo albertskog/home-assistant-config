@@ -1,19 +1,27 @@
-  # Wakeup Light
-  wakeup_hour:
-    name: Hour
-    icon: mdi:clock-in
-    min: 0
-    max: 23
-    step: 1
-  wakeup_minutes:
-    name: Minutes
-    icon: mdi:clock-in
-    min: 0
-    max: 55
-    step: 5
-  wakeup_duration:
-    name: Light fade-in duration
-    icon: mdi:clock-in
-    min: 5
-    max: 60
-    step: 5
+# Wakeup Light
+wakeup_hour:
+  name: Hour
+  icon: mdi:clock-in
+  min: 0
+  max: 23
+  step: 1
+wakeup_minutes:
+  name: Minutes
+  icon: mdi:clock-in
+  min: 0
+  max: 55
+  step: 5
+wakeup_duration:
+  name: Light fade-in duration
+  icon: mdi:clock-in
+  min: 5
+  max: 60
+  step: 5
+
+# Coffee Automation
+coffee_on_duration:
+  name: Minutes on
+  icon: mdi:clock-in
+  min: 0
+  max: 55
+  step: 1

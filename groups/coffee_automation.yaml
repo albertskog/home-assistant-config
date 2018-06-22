@@ -1,0 +1,8 @@
+name: Coffee Automation
+control: hidden
+entities:
+  - input_boolean.coffee_automation
+  - input_datetime.coffee_on_time
+  - input_number.coffee_on_duration
+  - script.coffee_auto_off
+  - script.coffee_trigger

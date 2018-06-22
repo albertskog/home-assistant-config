@@ -1,311 +1,332 @@
-  restart_ha:
-    alias: Restart HomeAssistant
-    sequence:
-      - alias: Restart HA
-        service: homeassistant.restart
+restart_ha:
+  alias: Restart HomeAssistant
+  sequence:
+    - alias: Restart HA
+      service: homeassistant.restart
 
-  reload_core:
-    alias: Reload Core Config
-    sequence:
-      - alias: Reload-Core
-        service: homeassistant.reload_core_config
+reload_core:
+  alias: Reload Core Config
+  sequence:
+    - alias: Reload-Core
+      service: homeassistant.reload_core_config
 
-  reload_groups:
-    alias: Reload Groups
-    sequence:
-      - alias: Reload-Groups
-        service: group.reload
+reload_groups:
+  alias: Reload Groups
+  sequence:
+    - alias: Reload-Groups
+      service: group.reload
 
-  reload_automations:
-    alias: Reload Automations
-    sequence:
-      - alias: Reload-Automations
-        service: automation.reload
+reload_automations:
+  alias: Reload Automations
+  sequence:
+    - alias: Reload-Automations
+      service: automation.reload
 
-  reload_scripts:
-    alias: Reload Scripts
-    sequence:
-      - alias: Reload-Scripts
-        service: script.reload
-  # Scenes
-  scene_morning:
-    alias: Weekday Morning On
-    sequence:
-      - service: light.turn_on
-        data_template:
-          brightness_pct: 1
-          color_temp: 250
-          entity_id:
-          - light.tak_1
-          - light.tak_2
-          - light.tak_3
-          - light.hue_vardagsrum
-        
-      - service: switch.turn_on
-        data_template:
-          entity_id:
-          - switch.plant_light
-          - switch.cupboard_light
-      - delay: '00:{{ states.input_number.wakeup_duration.state | int }}:00'
+reload_scripts:
+  alias: Reload Scripts
+  sequence:
+    - alias: Reload-Scripts
+      service: script.reload
+# Scenes
+scene_morning:
+  alias: Weekday Morning On
+  sequence:
+    - service: light.turn_on
+      data_template:
+        brightness_pct: 1
+        color_temp: 250
+        entity_id:
+        - light.tak_1
+        - light.tak_2
+        - light.tak_3
+        - light.hue_vardagsrum
+      
+    - service: switch.turn_on
+      data_template:
+        entity_id:
+        - switch.plant_light
+        - switch.cupboard_light
+    - delay: '00:{{ states.input_number.wakeup_duration.state | int }}:00'
 
-      - service: light.turn_on
-        data_template:
-          brightness_pct: 100
-          color_temp: 250
-          entity_id:
-          - light.tak_1
-          - light.tak_2
-          - light.tak_3
-          - light.hue_vardagsrum
-          transition: 1800
+    - service: light.turn_on
+      data_template:
+        brightness_pct: 100
+        color_temp: 250
+        entity_id:
+        - light.tak_1
+        - light.tak_2
+        - light.tak_3
+        - light.hue_vardagsrum
+        transition: 1800
 
-  scene_daytime:
-    alias: Away
-    sequence:
-      - service: light.turn_off
-        data_template:
-          entity_id:
-          - light.hue_sovrum
-          - light.hue_vardagsrum
+scene_daytime:
+  alias: Away
+  sequence:
+    - service: light.turn_off
+      data_template:
+        entity_id:
+        - light.hue_sovrum
+        - light.hue_vardagsrum
 
-      - service: switch.turn_off
-        data_template:
-          entity_id:
-          - switch.tv_light_new
-          - switch.cupboard_light
-          - switch.plant_light
-          - switch.coffee_maker_new
+    - service: switch.turn_off
+      data_template:
+        entity_id:
+        - switch.tv_light_new
+        - switch.cupboard_light
+        - switch.plant_light
+        - switch.coffee_maker_new
 
-      - service: light.turn_on
-        data_template:
-          entity_id: light.tak_3
-          brightness: 0
-          transition: 3
-      - delay: 
-          milliseconds: 1
+    - service: light.turn_on
+      data_template:
+        entity_id: light.tak_3
+        brightness: 0
+        transition: 3
+    - delay: 
+        milliseconds: 1
 
-      - service: light.turn_on
-        data_template:
-          entity_id: light.tak_2
-          brightness: 0
-          transition: 3
-      - delay: 
-          milliseconds: 1
+    - service: light.turn_on
+      data_template:
+        entity_id: light.tak_2
+        brightness: 0
+        transition: 3
+    - delay: 
+        milliseconds: 1
 
-      - service: light.turn_on
-        data_template:
-          entity_id: light.tak_1
-          brightness: 0
-          transition: 3
+    - service: light.turn_on
+      data_template:
+        entity_id: light.tak_1
+        brightness: 0
+        transition: 3
 
-  scene_evening:
-    alias: Coming home
-    sequence:
-      - service: light.turn_on
-        data_template:
-          entity_id: light.tak_1
-          brightness_pct: 50
-          color_temp: 370
-          transition: 3
-      - delay:
-          milliseconds: 1
+scene_evening:
+  alias: Coming home
+  sequence:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.tak_1
+        brightness_pct: 50
+        color_temp: 370
+        transition: 3
+    - delay:
+        milliseconds: 1
 
-      - service: light.turn_on
-        data_template:
-          entity_id: light.tak_2
-          brightness_pct: 50
-          color_temp: 370
-          transition: 3
-      - delay:
-          milliseconds: 1
+    - service: light.turn_on
+      data_template:
+        entity_id: light.tak_2
+        brightness_pct: 50
+        color_temp: 370
+        transition: 3
+    - delay:
+        milliseconds: 1
 
-      - service: light.turn_on
-        data_template:
-          entity_id: light.tak_3
-          brightness_pct: 50
-          color_temp: 370
-          transition: 3
+    - service: light.turn_on
+      data_template:
+        entity_id: light.tak_3
+        brightness_pct: 50
+        color_temp: 370
+        transition: 3
 
-      - service: switch.turn_on
-        data_template:
-          entity_id: switch.cupboard_light, switch.plant_light
+    - service: switch.turn_on
+      data_template:
+        entity_id: switch.cupboard_light, switch.plant_light
 
-      - service: light.turn_on
-        data_template:
-          entity_id: light.hue_vardagsrum
-          brightness_pct: 70
-          color_temp: 500
-          transition: 3
+    - service: light.turn_on
+      data_template:
+        entity_id: light.hue_vardagsrum
+        brightness_pct: 70
+        color_temp: 500
+        transition: 3
 
-  scene_night:
-    alias: Bedtime
-    sequence:
-      - service: light.turn_on
-        data_template:
-          entity_id: light.hue_sovrum
-          brightness: 80
+scene_night:
+  alias: Bedtime
+  sequence:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.hue_sovrum
+        brightness: 80
 
-      - service: switch.turn_off
-        data_template:
-          entity_id: switch.tv_light_new, switch.cupboard_light, switch.plant_light
+    - service: switch.turn_off
+      data_template:
+        entity_id: switch.tv_light_new, switch.cupboard_light, switch.plant_light
 
-      - service: light.turn_on
-        data_template:
-          entity_id: light.tak_3, light.hue_vardagsrum
-          brightness: 0
-          transition: 3
-      - delay: 00:00:01
+    - service: light.turn_on
+      data_template:
+        entity_id: light.tak_3, light.hue_vardagsrum
+        brightness: 0
+        transition: 3
+    - delay: 00:00:01
 
-      - service: light.turn_on
-        data_template:
-          entity_id: light.tak_2
-          brightness: 0
-          transition: 3
-      - delay: 00:00:01
+    - service: light.turn_on
+      data_template:
+        entity_id: light.tak_2
+        brightness: 0
+        transition: 3
+    - delay: 00:00:01
 
-      - service: light.turn_on
-        data_template:
-          entity_id: light.tak_1
-          brightness: 0
-          transition: 3
+    - service: light.turn_on
+      data_template:
+        entity_id: light.tak_1
+        brightness: 0
+        transition: 3
 
-  # TV
-  tv_off:
-    alias: 'TV off'
-    sequence:
-      - service: remote.send_command
-        data_template:
-          entity_id: remote.apple_tv
-          command: top_menu
-      - delay: 00:00:01
-      - service: remote.send_command
-        data_template:
-          entity_id: remote.apple_tv
-          command: menu
-      - delay: 00:00:01
-      - service: remote.send_command
-        data_template:
-          entity_id: remote.apple_tv
-          command: left
-      - delay: 00:00:01
-      - service: remote.send_command
-        data_template:
-          entity_id: remote.apple_tv
-          command: [down, down, right, right, right, select, menu]
-      - delay: 00:00:02
-      - service: remote.send_command
-        data_template:
-          entity_id: remote.apple_tv
-          command: menu
-      - delay: 00:00:01
-      - service: remote.send_command
-        data_template:
-          entity_id: remote.apple_tv
-          command: menu
-      - delay: 00:00:01
-      - service: remote.send_command
-        data_template:
-          entity_id: remote.apple_tv
-          command: menu
-      - delay: 00:00:01
-      - service: remote.send_command
-        data_template:
-          entity_id: remote.apple_tv
-          command: menu
-      - delay: 00:00:01
-      - service: remote.send_command
-        data_template:
-          entity_id: remote.apple_tv
-          command: menu
-      - delay: 00:00:01
-      - service: remote.send_command
-        data_template:
-          entity_id: remote.apple_tv
-          command: menu
-      - delay: 00:00:01
-      - service: remote.send_command
-        data_template:
-          entity_id: remote.apple_tv
-          command: left
-      - delay: 00:00:01
-      - service: remote.send_command
-        data_template:
-          entity_id: remote.apple_tv
-          command: [down, down, right, right, right, select]
-      - delay: 00:00:01
-      - service: remote.send_command
-        data_template:
-          entity_id: remote.apple_tv
-          command: [down, down, down, down, down, down, down, down]
-      - delay: 00:00:01
-      - service: remote.send_command
-        data_template:
-          entity_id: remote.apple_tv
-          command: select
+# TV
+tv_off:
+  alias: 'TV off'
+  sequence:
+    - service: remote.send_command
+      data_template:
+        entity_id: remote.apple_tv
+        command: top_menu
+    - delay: 00:00:01
+    - service: remote.send_command
+      data_template:
+        entity_id: remote.apple_tv
+        command: menu
+    - delay: 00:00:01
+    - service: remote.send_command
+      data_template:
+        entity_id: remote.apple_tv
+        command: left
+    - delay: 00:00:01
+    - service: remote.send_command
+      data_template:
+        entity_id: remote.apple_tv
+        command: [down, down, right, right, right, select, menu]
+    - delay: 00:00:02
+    - service: remote.send_command
+      data_template:
+        entity_id: remote.apple_tv
+        command: menu
+    - delay: 00:00:01
+    - service: remote.send_command
+      data_template:
+        entity_id: remote.apple_tv
+        command: menu
+    - delay: 00:00:01
+    - service: remote.send_command
+      data_template:
+        entity_id: remote.apple_tv
+        command: menu
+    - delay: 00:00:01
+    - service: remote.send_command
+      data_template:
+        entity_id: remote.apple_tv
+        command: menu
+    - delay: 00:00:01
+    - service: remote.send_command
+      data_template:
+        entity_id: remote.apple_tv
+        command: menu
+    - delay: 00:00:01
+    - service: remote.send_command
+      data_template:
+        entity_id: remote.apple_tv
+        command: menu
+    - delay: 00:00:01
+    - service: remote.send_command
+      data_template:
+        entity_id: remote.apple_tv
+        command: left
+    - delay: 00:00:01
+    - service: remote.send_command
+      data_template:
+        entity_id: remote.apple_tv
+        command: [down, down, right, right, right, select]
+    - delay: 00:00:01
+    - service: remote.send_command
+      data_template:
+        entity_id: remote.apple_tv
+        command: [down, down, down, down, down, down, down, down]
+    - delay: 00:00:01
+    - service: remote.send_command
+      data_template:
+        entity_id: remote.apple_tv
+        command: select
 
-  # Wakeup Light
-  wakeup_bedroom:
-    alias: 'Wakeup lighting, smooth transition'
-    sequence:
-      - service: light.turn_on
-        data_template:
-          entity_id: light.hue_sovrum
-          brightness: 0
-          rgb_color: [128,0,0]
-      - delay:
-          seconds: 0
-      - service: light.turn_on
-        data_template:
-          entity_id: light.hue_sovrum
-          brightness: 1
-          rgb_color: [128,0,0]
-      - delay:
-          seconds: 1
-      - service: light.turn_on
-        data_template:
-          entity_id: light.hue_sovrum
-          brightness: 16
-          rgb_color: [128,0,0]
-          transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 -1 ) | round ) | int }}'
-      - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 ) | round ) | int }}'
-      - service: light.turn_on
-        data_template:
-          entity_id: light.hue_sovrum
-          brightness: 32
-          rgb_color: [192,64,0]
-          transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 - 1 ) | round ) | int }}'
-      - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 ) | round ) | int }}'
-      - service: light.turn_on
-        data_template:
-          entity_id: light.hue_sovrum
-          brightness: 48
-          rgb_color: [224,128,32]
-          transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 - 1 ) | round ) | int }}'
-      - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 ) | round ) | int }}'
-      - service: light.turn_on
-        data_template:
-          entity_id: light.hue_sovrum
-          brightness: 96
-          rgb_color: [255,176,96]
-          transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 - 1 ) | round ) | int }}'
-      - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 ) | round ) | int }}'
-      - service: light.turn_on
-        data_template:
-          entity_id: light.hue_sovrum
-          brightness: 112
-          rgb_color: [255,224,160]
-          transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 - 1 ) | round ) | int }}'
-      - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 ) | round ) | int }}'
-      - service: light.turn_on
-        data_template:
-          entity_id: light.hue_sovrum
-          brightness: 128
-          rgb_color: [255,255,224]
-          transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 - 1 ) | round ) | int }}'
-      - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 ) | round ) | int }}'
-      - service: light.turn_on
-        data_template:
-          entity_id: light.hue_sovrum
-          brightness: 144
-          rgb_color: [240,255,255]
-          transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 - 1 ) | round ) | int }}'
+# Wakeup Light
+wakeup_bedroom:
+  alias: 'Wakeup lighting, smooth transition'
+  sequence:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.hue_sovrum
+        brightness: 0
+        rgb_color: [128,0,0]
+    - delay:
+        seconds: 0
+    - service: light.turn_on
+      data_template:
+        entity_id: light.hue_sovrum
+        brightness: 1
+        rgb_color: [128,0,0]
+    - delay:
+        seconds: 1
+    - service: light.turn_on
+      data_template:
+        entity_id: light.hue_sovrum
+        brightness: 16
+        rgb_color: [128,0,0]
+        transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 -1 ) | round ) | int }}'
+    - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 ) | round ) | int }}'
+    - service: light.turn_on
+      data_template:
+        entity_id: light.hue_sovrum
+        brightness: 32
+        rgb_color: [192,64,0]
+        transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 - 1 ) | round ) | int }}'
+    - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 ) | round ) | int }}'
+    - service: light.turn_on
+      data_template:
+        entity_id: light.hue_sovrum
+        brightness: 48
+        rgb_color: [224,128,32]
+        transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 - 1 ) | round ) | int }}'
+    - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 ) | round ) | int }}'
+    - service: light.turn_on
+      data_template:
+        entity_id: light.hue_sovrum
+        brightness: 96
+        rgb_color: [255,176,96]
+        transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 - 1 ) | round ) | int }}'
+    - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 ) | round ) | int }}'
+    - service: light.turn_on
+      data_template:
+        entity_id: light.hue_sovrum
+        brightness: 112
+        rgb_color: [255,224,160]
+        transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 - 1 ) | round ) | int }}'
+    - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 ) | round ) | int }}'
+    - service: light.turn_on
+      data_template:
+        entity_id: light.hue_sovrum
+        brightness: 128
+        rgb_color: [255,255,224]
+        transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 - 1 ) | round ) | int }}'
+    - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 ) | round ) | int }}'
+    - service: light.turn_on
+      data_template:
+        entity_id: light.hue_sovrum
+        brightness: 144
+        rgb_color: [240,255,255]
+        transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 7 - 1 ) | round ) | int }}'
+
+
+# Coffee automation
+coffee_trigger:
+  alias: 'Turn on for X minutes'
+  sequence:
+    - service: switch.turn_on
+      data_template:
+        entity_id: switch.coffee_maker_new
+    - delay: '00:{{states.input_number.coffee_on_duration.state | int }}:00'
+    - service: switch.turn_off
+      data_template:
+        entity_id: switch.coffee_maker_new
+
+coffee_auto_off:
+  alias: 'Turn off in X minutes'
+  sequence:
+    - delay: '00:{{states.input_number.coffee_on_duration.state | int }}:00'
+    - service: switch.turn_off
+      data_template:
+        entity_id: switch.coffee_maker_new

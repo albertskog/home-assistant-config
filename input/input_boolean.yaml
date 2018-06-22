@@ -11,3 +11,8 @@ wakeup_weekends:
 heating:
   name: 'Enable heating automation'
   icon: mdi:power
+
+# Coffee automation
+coffee_automation:
+  name: 'Enable coffee automation'
+  icon: mdi:power

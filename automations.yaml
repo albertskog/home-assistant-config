@@ -219,3 +219,18 @@
 #   trigger:
 #     platform: state
 #     entity_id: input_boolean.wakeup
+
+
+- action:
+  - data:
+      entity_id: switch.coffee_maker_new
+    service: switch.turn_on
+  alias: Start Coffee Maker
+  condition:
+    - condition: state
+      entity_id: input_boolean.coffee_automation
+      state: 'on'
+  id: '1520145586604'
+  trigger:
+    platform: template
+    value_template: "{{ states('sensor.time') == (states.input_datetime.coffee_on_time.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"

@@ -1,3 +1,4 @@
+# Heating automation
 heating_mortning_start:
   name: Morning start time
   has_date: false
@@ -14,3 +15,9 @@ heating_evening_end:
   name: Evening end time
   has_date: false
   has_time: true
+
+# Coffee automation
+coffee_on_time:
+  name: Start time
+  has_date: false
+  has_time: true  
