@@ -230,6 +230,13 @@
     - condition: state
       entity_id: input_boolean.coffee_automation
       state: 'on'
+    - condition: time
+      weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
   id: '1520145586604'
   trigger:
     platform: template
