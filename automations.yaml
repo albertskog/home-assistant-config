@@ -1,3 +1,4 @@
+# Wakeup Light
 - alias: WakeUp Light Bedroom
   id: '1516469487030'
   hide_entity: true
@@ -22,6 +23,8 @@
           - fri
   action:
     service: script.wakeup_bedroom
+
+# Turn lights on on weekday mornings
 - alias: Weekday Morning On
   action:
     service: script.scene_morning
@@ -37,6 +40,8 @@
   trigger:
   - at: 05:30
     platform: time
+
+# Turn everything off when the last person leaves on weekdays
 - action:
   - data:
       entity_id:
@@ -65,20 +70,29 @@
   - platform: state
     entity_id: group.all_devices
     to: not_home
+
+# Turn the light on when someone comes home
 - action:
   - data: {}
     service: script.scene_evening
   alias: Evening Light On
   id: '1517169567056'
   trigger:
-  - entity_id: device_tracker.alberts_iphone
+  - platform: state
+    entity_id: device_tracker.alberts_iphone, device_tracker.astrid_sin_iphone
     from: not_home
-    platform: state
     to: 'home'
-  - entity_id: device_tracker.astrid_sin_iphone
-    from: not_home
-    platform: state
-    to: 'home'
+  condition:
+    condition: or
+    conditions:
+      - condition : state
+        entity_id: device_tracker.astrid_sin_iphone
+        state: not_home
+      - condition : state
+        entity_id: device_tracker.alberts_iphone
+        state: not_home
+
+# Start heating in the morning
 - action:
   - data:
       entity_id: switch.heater_livingroom
@@ -92,6 +106,8 @@
   trigger:
     platform: template
     value_template: "{{ states('sensor.time') == (states.input_datetime.heating_mortning_start.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+
+# Stop heating in the morning
 - action:
   - data:
       entity_id: switch.heater_livingroom
@@ -105,6 +121,8 @@
   trigger:
     platform: template
     value_template: "{{ states('sensor.time') == (states.input_datetime.heating_mortning_end.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+
+# Start heating in the evening
 - action:
   - data:
       entity_id: switch.heater_livingroom
@@ -118,6 +136,8 @@
   trigger:
     platform: template
     value_template: "{{ states('sensor.time') == (states.input_datetime.heating_evening_start.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+
+# Stop heating in the evening
 - action:
   - data:
       entity_id: switch.heater_livingroom
@@ -131,6 +151,8 @@
   trigger:
     platform: template
     value_template: "{{ states('sensor.time') == (states.input_datetime.heating_evening_end.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+
+# Gradually change color temperature in the evening
 - action:
   - data:
       color_temp: 370
@@ -145,6 +167,8 @@
   trigger:
   - event: sunset
     platform: sun
+
+# Gradually change color temperature in the evening
 - action:
   - data:
       color_temp: 457
@@ -161,6 +185,7 @@
     offset: '2:00:00'
     platform: sun
 
+# Change wakeup time
 - action:
   - data_template:
       entity_id: input_number.wakeup_hour 
@@ -176,6 +201,7 @@
     platform: mqtt
     topic: "alarm_clock"
 
+# Disable wakeup
 - action:
   - data:
       entity_id: input_boolean.wakeup
@@ -192,6 +218,7 @@
     platform: mqtt
     topic: "alarm_clock"
 
+# Enable wakeup
 - action:
   - data:
       entity_id: input_boolean.wakeup
@@ -208,6 +235,7 @@
     platform: mqtt
     topic: "alarm_clock"
 
+# Move alarm
 # - action:
 #   - data_template:
 #       topic: alarm_clock/command
@@ -220,7 +248,7 @@
 #     platform: state
 #     entity_id: input_boolean.wakeup
 
-
+# Start coffee maker
 - action:
   - data:
       entity_id: switch.coffee_maker_new
