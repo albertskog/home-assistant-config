@@ -1,4 +1,4 @@
 name: Control
-view: yes
+view: true
 entities:
   - group.hass_control

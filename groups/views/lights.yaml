@@ -1,5 +1,5 @@
 name: Light
-view: yes
+view: true
 entities:
   - group.light_livingroom
   - group.light_bedroom

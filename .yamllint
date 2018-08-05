@@ -1,0 +1,12 @@
+extends: default
+
+rules:
+  line-length:
+    max: 600
+
+  document-start:
+    present: false
+
+  indentation:
+    spaces: 2
+    indent-sequences: true

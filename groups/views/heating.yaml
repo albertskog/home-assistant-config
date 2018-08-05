@@ -1,5 +1,5 @@
 name: Heating
-view: yes
+view: true
 entities:
   - input_boolean.heating
   - switch.heater_livingroom
@@ -7,4 +7,3 @@ entities:
   - input_datetime.heating_evening_start
   - input_datetime.heating_mortning_end
   - input_datetime.heating_mortning_start
-  

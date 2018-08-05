@@ -16,11 +16,11 @@
           state: 'on'
         - condition: time
           weekday:
-          - mon
-          - tue
-          - wed
-          - thu
-          - fri
+            - mon
+            - tue
+            - wed
+            - thu
+            - fri
   action:
     service: script.wakeup_bedroom
 
@@ -29,75 +29,75 @@
   action:
     service: script.scene_morning
   condition:
-  - condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
   id: '1517158114659'
   trigger:
-  - at: 05:30
-    platform: time
+    - at: 05:30
+      platform: time
 
 # Turn everything off when the last person leaves on weekdays
-- action:
-  - data:
-      entity_id:
-      - light.tak_1
-      - light.tak_2
-      - light.tak_3
-      - light.hue_vardagsrum
-      - light.hue_sovrum
-    service: light.turn_off
-  - data:
-      entity_id:
-      - switch.plant_light
-      - switch.cupboard_light
-    service: switch.turn_off
-  alias: Weekday Morning Off
+- alias: Weekday Morning Off
+  action:
+    - data:
+        entity_id:
+          - light.tak_1
+          - light.tak_2
+          - light.tak_3
+          - light.hue_vardagsrum
+          - light.hue_sovrum
+      service: light.turn_off
+    - data:
+        entity_id:
+          - switch.plant_light
+          - switch.cupboard_light
+      service: switch.turn_off
   condition:
-  - condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
   id: '1517160306581'
   trigger:
-  - platform: state
-    entity_id: group.all_devices
-    to: not_home
+    - platform: state
+      entity_id: group.all_devices
+      to: not_home
 
 # Turn the light on when someone comes home
-- action:
-  - data: {}
-    service: script.scene_evening
-  alias: Evening Light On
+- alias: Evening Light On
+  action:
+    - data: {}
+      service: script.scene_evening
   id: '1517169567056'
   trigger:
-  - platform: state
-    entity_id: device_tracker.alberts_iphone, device_tracker.astrid_sin_iphone
-    from: not_home
-    to: 'home'
+    - platform: state
+      entity_id: device_tracker.alberts_iphone, device_tracker.astrid_sin_iphone
+      from: not_home
+      to: 'home'
   condition:
     condition: or
     conditions:
-      - condition : state
+      - condition: state
         entity_id: device_tracker.astrid_sin_iphone
         state: not_home
-      - condition : state
+      - condition: state
         entity_id: device_tracker.alberts_iphone
         state: not_home
 
 # Start heating in the morning
-- action:
-  - data:
-      entity_id: switch.heater_livingroom
-    service: switch.turn_on
-  alias: Heating Morning On
+- alias: Heating Morning On
+  action:
+    - data:
+        entity_id: switch.heater_livingroom
+      service: switch.turn_on
   condition:
     - condition: state
       entity_id: input_boolean.heating
@@ -108,11 +108,11 @@
     value_template: "{{ states('sensor.time') == (states.input_datetime.heating_mortning_start.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
 
 # Stop heating in the morning
-- action:
-  - data:
-      entity_id: switch.heater_livingroom
-    service: switch.turn_off
-  alias: Heating Morning Off
+- alias: Heating Morning Off
+  action:
+    - data:
+        entity_id: switch.heater_livingroom
+      service: switch.turn_off
   condition:
     - condition: state
       entity_id: input_boolean.heating
@@ -123,11 +123,11 @@
     value_template: "{{ states('sensor.time') == (states.input_datetime.heating_mortning_end.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
 
 # Start heating in the evening
-- action:
-  - data:
-      entity_id: switch.heater_livingroom
-    service: switch.turn_on
-  alias: Heating Evening On
+- alias: Heating Evening On
+  action:
+    - data:
+        entity_id: switch.heater_livingroom
+      service: switch.turn_on
   condition:
     - condition: state
       entity_id: input_boolean.heating
@@ -138,76 +138,77 @@
     value_template: "{{ states('sensor.time') == (states.input_datetime.heating_evening_start.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
 
 # Stop heating in the evening
-- action:
-  - data:
-      entity_id: switch.heater_livingroom
-    service: switch.turn_off
-  alias: Heating Evening Off
+- alias: Heating Evening Off
+  id: '1517552024666'
+  action:
+    - data:
+        entity_id: switch.heater_livingroom
+      service: switch.turn_off
   condition:
     - condition: state
       entity_id: input_boolean.heating
       state: 'on'
-  id: '1517552024666'
   trigger:
     platform: template
     value_template: "{{ states('sensor.time') == (states.input_datetime.heating_evening_end.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
 
 # Gradually change color temperature in the evening
-- action:
-  - data:
-      color_temp: 370
-      entity_id:
-      - light_tak_1
-      - light_tak_2
-      - light_tak_3
-    service: light.turn_on
-  alias: Sunset temperature change 1
+- alias: Sunset temperature change 1
+  action:
+    - data:
+        color_temp: 370
+        entity_id:
+          - light_tak_1
+          - light_tak_2
+          - light_tak_3
+      service: light.turn_on
   condition: []
   id: '1520144586626'
   trigger:
-  - event: sunset
-    platform: sun
+    - event: sunset
+      platform: sun
 
 # Gradually change color temperature in the evening
-- action:
-  - data:
-      color_temp: 457
-      entity_id:
-      - light_tak_1
-      - light_tak_2
-      - light_tak_3
-    service: light.turn_on
-  alias: Sunset temperature change 2
-  condition: []
+- alias: Sunset temperature change 2
   id: '1520144636923'
+  action:
+    - data:
+        color_temp: 457
+        entity_id:
+          - light_tak_1
+          - light_tak_2
+          - light_tak_3
+      service: light.turn_on
+  condition: []
   trigger:
-  - event: sunset
-    offset: '2:00:00'
-    platform: sun
+    - event: sunset
+      offset: '2:00:00'
+      platform: sun
 
 # Change wakeup time
-- action:
-  - data_template:
-      entity_id: input_number.wakeup_hour 
-      value: '{{trigger["payload_json"]["alarm_time"][0]}}'
-    service: input_number.set_value
-  - data_template:
-      entity_id: input_number.wakeup_minutes 
-      value: '{{trigger["payload_json"]["alarm_time"][1]}}'
-    service: input_number.set_value
+- alias: Move Wakeup
   id: '1520145586600'
-  alias: Move Wakeup
+  action:
+    - data_template:
+        entity_id: input_number.wakeup_hour
+        value: '{{trigger["payload_json"]["alarm_time"][0]}}'
+      service: input_number.set_value
+    - data_template:
+        entity_id: input_number.wakeup_minutes
+        value: '{{trigger["payload_json"]["alarm_time"][1]}}'
+      service: input_number.set_value
+
   trigger:
     platform: mqtt
     topic: "alarm_clock"
 
 # Disable wakeup
-- action:
-  - data:
-      entity_id: input_boolean.wakeup
-    service: input_boolean.turn_off
+- alias: Disable Wakeup
   id: '1520145586601'
-  alias: Disable Wakeup
+  action:
+    - data:
+        entity_id: input_boolean.wakeup
+      service: input_boolean.turn_off
   condition:
     - condition: state
       entity_id: input_boolean.wakeup
@@ -219,12 +220,12 @@
     topic: "alarm_clock"
 
 # Enable wakeup
-- action:
-  - data:
-      entity_id: input_boolean.wakeup
-    service: input_boolean.turn_on
+- alias: Enable Wakeup
   id: '1520145586602'
-  alias: Enable Wakeup
+  action:
+    - data:
+        entity_id: input_boolean.wakeup
+      service: input_boolean.turn_on
   condition:
     - condition: state
       entity_id: input_boolean.wakeup
@@ -249,23 +250,23 @@
 #     entity_id: input_boolean.wakeup
 
 # Start coffee maker
-- action:
-  - data:
-      entity_id: switch.coffee_maker_new
-    service: switch.turn_on
-  alias: Start Coffee Maker
+- alias: Start Coffee Maker
+  id: '1520145586604'
+  action:
+    - data:
+        entity_id: switch.coffee_maker_new
+      service: switch.turn_on
   condition:
     - condition: state
       entity_id: input_boolean.coffee_automation
       state: 'on'
     - condition: time
       weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
-  id: '1520145586604'
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
   trigger:
     platform: template
     value_template: "{{ states('sensor.time') == (states.input_datetime.coffee_on_time.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"

@@ -6,6 +6,7 @@
 !groups/views
 !.gitignore
 !.HA_VERSION
+!.yamllint
 secrets.yaml
 known_devices.yaml
 entity_registry.yaml

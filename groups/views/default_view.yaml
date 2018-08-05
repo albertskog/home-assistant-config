@@ -1,5 +1,5 @@
 name: Home
-view: yes
+view: true
 entities:
   - group.modes
   - media_player.apple_tv
