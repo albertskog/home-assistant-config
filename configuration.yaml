@@ -100,3 +100,6 @@ mqtt:
 
 # History and retention
 recorder: !include recorder.yaml
+
+# Flux settings
+switch: !include switch.yaml
