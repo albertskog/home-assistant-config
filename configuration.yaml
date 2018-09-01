@@ -106,3 +106,6 @@ recorder: !include recorder.yaml
 
 # Flux settings
 switch: !include switch.yaml
+
+# Notofications
+notify: !include notify.yaml
