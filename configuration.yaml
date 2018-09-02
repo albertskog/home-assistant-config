@@ -41,6 +41,8 @@ updater:
 discovery:
   ignore:
     - philips_hue
+  enable:
+    - homekit
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -91,8 +93,7 @@ zone: !include zone.yaml
 device_tracker: !include device_tracker.yaml
 
 # HomeKit
-homekit:
-  pincode: !secret homekit_pin
+homekit: !include homekit.yaml
 
 # iOS
 ios:

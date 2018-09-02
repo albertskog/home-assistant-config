@@ -1,0 +1,4 @@
+filter:
+  include_entities:
+    - switch.coffee_maker_new
+    - switch.sofa_light
