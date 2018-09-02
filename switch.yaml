@@ -6,10 +6,10 @@
     - light.tak_1
     - light.tak_2
     - light.tak_3
-  start_time: '6:00'
+  start_time: '16:00'
   stop_time: '21:00'
   start_colortemp: 4000
-  sunset_colortemp: 3900
+  sunset_colortemp: 3000
   stop_colortemp: 2200
-  disable_brightness_adjust: true
+  disable_brightness_adjust: false
   mode: mired
