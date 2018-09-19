@@ -1,0 +1,18 @@
+# Start coffee maker
+- alias: Start Coffee Maker
+  action:
+    service: script.coffee_trigger
+  condition:
+    - condition: state
+      entity_id: input_boolean.coffee_automation
+      state: 'on'
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  trigger:
+    platform: template
+    value_template: "{{ states('sensor.time') == (states.input_datetime.coffee_on_time.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"

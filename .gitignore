@@ -1,6 +1,7 @@
 *
 !*.yaml
 ._*
+!automation
 !input
 !groups
 !groups/views

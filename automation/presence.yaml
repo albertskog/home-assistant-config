@@ -1,0 +1,51 @@
+# Turn everything off when the last person leaves on weekdays
+- alias: Weekday Morning Off
+  action:
+    - data:
+        entity_id:
+          - light.tak_1
+          - light.tak_2
+          - light.tak_3
+          - light.hue_vardagsrum
+          - light.hue_sovrum
+      service: light.turn_off
+    - data:
+        entity_id:
+          - switch.plant_light
+          - switch.cupboard_light
+      service: switch.turn_off
+  condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  trigger:
+    - platform: state
+      entity_id: group.all_devices
+      to: not_home
+
+# Turn the light on when someone comes home
+- alias: Evening Light On
+  action:
+    - data: {}
+      service: script.scene_evening
+    - service: switch.turn_on
+      data:
+        entity_id: switch.fluxer
+  trigger:
+    - platform: state
+      entity_id: device_tracker.alberts_iphone, device_tracker.astrid_sin_iphone
+      from: not_home
+      to: 'home'
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: device_tracker.astrid_sin_iphone
+        state: not_home
+      - condition: state
+        entity_id: device_tracker.alberts_iphone
+        state: not_home

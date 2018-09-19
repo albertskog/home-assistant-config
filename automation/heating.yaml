@@ -1,0 +1,55 @@
+# Start heating in the morning
+- alias: Heating Morning On
+  action:
+    - data:
+        entity_id: switch.heater_livingroom
+      service: switch.turn_on
+  condition:
+    - condition: state
+      entity_id: input_boolean.heating
+      state: 'on'
+  trigger:
+    platform: template
+    value_template: "{{ states('sensor.time') == (states.input_datetime.heating_mortning_start.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+
+# Stop heating in the morning
+- alias: Heating Morning Off
+  action:
+    - data:
+        entity_id: switch.heater_livingroom
+      service: switch.turn_off
+  condition:
+    - condition: state
+      entity_id: input_boolean.heating
+      state: 'on'
+  trigger:
+    platform: template
+    value_template: "{{ states('sensor.time') == (states.input_datetime.heating_mortning_end.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+
+# Start heating in the evening
+- alias: Heating Evening On
+  action:
+    - data:
+        entity_id: switch.heater_livingroom
+      service: switch.turn_on
+  condition:
+    - condition: state
+      entity_id: input_boolean.heating
+      state: 'on'
+  trigger:
+    platform: template
+    value_template: "{{ states('sensor.time') == (states.input_datetime.heating_evening_start.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+
+# Stop heating in the evening
+- alias: Heating Evening Off
+  action:
+    - data:
+        entity_id: switch.heater_livingroom
+      service: switch.turn_off
+  condition:
+    - condition: state
+      entity_id: input_boolean.heating
+      state: 'on'
+  trigger:
+    platform: template
+    value_template: "{{ states('sensor.time') == (states.input_datetime.heating_evening_end.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
