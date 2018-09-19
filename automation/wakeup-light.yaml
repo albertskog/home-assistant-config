@@ -21,23 +21,8 @@
             - thu
             - fri
   action:
-    service: script.wakeup_bedroom
-
-# Turn lights on on weekday mornings
-- alias: Weekday Morning On
-  action:
-    service: script.scene_morning
-  condition:
-    - condition: time
-      weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-  trigger:
-    - at: 05:30
-      platform: time
+    - service: script.wakeup_bedroom
+    - service: script.scene_morning
 
 # Change wakeup time
 - alias: Move Wakeup
@@ -50,7 +35,6 @@
         entity_id: input_number.wakeup_minutes
         value: '{{trigger["payload_json"]["alarm_time"][1]}}'
       service: input_number.set_value
-
   trigger:
     platform: mqtt
     topic: "alarm_clock"
