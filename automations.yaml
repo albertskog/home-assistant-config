@@ -76,6 +76,9 @@
   action:
     - data: {}
       service: script.scene_evening
+    - service: switch.turn_on
+      data:
+        entity_id: switch.fluxer
   id: '1517169567056'
   trigger:
     - platform: state
@@ -151,39 +154,6 @@
   trigger:
     platform: template
     value_template: "{{ states('sensor.time') == (states.input_datetime.heating_evening_end.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
-
-# Gradually change color temperature in the evening
-- alias: Sunset temperature change 1
-  action:
-    - data:
-        color_temp: 370
-        entity_id:
-          - light_tak_1
-          - light_tak_2
-          - light_tak_3
-      service: light.turn_on
-  condition: []
-  id: '1520144586626'
-  trigger:
-    - event: sunset
-      platform: sun
-
-# Gradually change color temperature in the evening
-- alias: Sunset temperature change 2
-  id: '1520144636923'
-  action:
-    - data:
-        color_temp: 457
-        entity_id:
-          - light_tak_1
-          - light_tak_2
-          - light_tak_3
-      service: light.turn_on
-  condition: []
-  trigger:
-    - event: sunset
-      offset: '2:00:00'
-      platform: sun
 
 # Change wakeup time
 - alias: Move Wakeup
