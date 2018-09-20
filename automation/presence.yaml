@@ -33,7 +33,7 @@
     - service: script.scene_evening
     - service: switch.turn_on
       data:
-        entity_id: switch.fluxer
+        entity_id: switch.flux
     - service: light.turn_on
       data:
         entity_id: hue_vardagsrum
