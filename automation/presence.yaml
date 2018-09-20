@@ -36,7 +36,7 @@
         entity_id: switch.fluxer
     - service: light.turn_on
       data:
-        enyity_id: hue_vardagsrum
+        entity_id: hue_vardagsrum
         rgb_color:
           - 255
           - 63
