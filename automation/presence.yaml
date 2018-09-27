@@ -14,18 +14,18 @@
           - switch.plant_light
           - switch.cupboard_light
       service: switch.turn_off
-  condition:
-    - condition: time
-      weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
   trigger:
     - platform: state
       entity_id: group.all_devices
+      from: 'home'
       to: not_home
+  condition:
+    - condition: template
+      value_template: >-
+        {{
+          not (is_state('device_tracker.alberts_iphone', 'home')
+           or is_state('device_tracker.astrid_sin_iphone', 'home'))
+        }}
 
 # Turn the light on when someone comes home
 - alias: Evening Light On
@@ -37,11 +37,9 @@
       from: not_home
       to: 'home'
   condition:
-    condition: or
-    conditions:
-      - condition: state
-        entity_id: device_tracker.astrid_sin_iphone
-        state: not_home
-      - condition: state
-        entity_id: device_tracker.alberts_iphone
-        state: not_home
+    - condition: template
+      value_template: >-
+        {{
+          not (is_state('device_tracker.alberts_iphone', 'home')
+           and is_state('device_tracker.astrid_sin_iphone', 'home'))
+        }}
