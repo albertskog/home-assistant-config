@@ -31,6 +31,10 @@ reload_scripts:
 scene_morning:
   alias: Weekday Morning On
   sequence:
+    - service: switch.turn_off
+      data_template:
+        entity_id:
+          - switch.flux
     - service: light.turn_on
       data_template:
         brightness_pct: 1
@@ -101,7 +105,7 @@ scene_evening:
   alias: Coming home
   sequence:
     - service: switch.turn_on
-      data:
+      data_template:
         entity_id: switch.flux
     - service: light.turn_on
       data_template:
@@ -134,6 +138,14 @@ scene_evening:
         entity_id: light.hue_vardagsrum
         brightness_pct: 70
         transition: 3
+    - service: light.turn_on
+      data_template:
+        entity_id: light.hue_sovrum
+        brightness: 20
+        rgb_color: [255, 63, 0]
+    - service: light.turn_off
+      data_template:
+        entity_id: light.hue_sovrum
 
 scene_night:
   alias: Bedtime
@@ -141,7 +153,8 @@ scene_night:
     - service: light.turn_on
       data_template:
         entity_id: light.hue_sovrum
-        brightness: 80
+        brightness: 20
+        rgb_color: [255, 63, 0]
 
     - service: switch.turn_off
       data_template:
