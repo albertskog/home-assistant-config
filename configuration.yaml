@@ -70,7 +70,6 @@ tts:
 cloud:
 
 group: !include_dir_named groups
-#automation: !include automations.yaml
 automation: !include_dir_merge_list automation/
 script: !include scripts.yaml
 
