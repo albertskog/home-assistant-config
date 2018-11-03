@@ -1,6 +1,6 @@
-- name: Telia
-  latitude: 59.952015
-  longitude: 10.767217
+- name: Inventas
+  latitude: 59.919842
+  longitude: 10.752125
   radius: 200
 
 - name: Mogi
