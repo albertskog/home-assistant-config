@@ -1,6 +1,6 @@
 name: Livingroom
 entities:
-  - light.vardagsrum_tak
+  - group.light_livingroom_ceiling
   - light.tak_1
   - light.tak_2
   - light.tak_3
