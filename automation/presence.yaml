@@ -23,7 +23,7 @@
     - condition: template
       value_template: >-
         {{
-          not (is_state('device_tracker.alberts_iphone', 'home')
+          not (is_state('device_tracker.alberts_phone', 'home')
            or is_state('device_tracker.astrid_sin_iphone', 'home'))
         }}
 
@@ -33,13 +33,13 @@
     - service: script.scene_evening
   trigger:
     - platform: state
-      entity_id: device_tracker.alberts_iphone, device_tracker.astrid_sin_iphone
+      entity_id: device_tracker.alberts_phone, device_tracker.astrid_sin_iphone
       from: not_home
       to: 'home'
   condition:
     - condition: template
       value_template: >-
         {{
-          not (is_state('device_tracker.alberts_iphone', 'home')
+          not (is_state('device_tracker.alberts_phone', 'home')
            and is_state('device_tracker.astrid_sin_iphone', 'home'))
         }}
