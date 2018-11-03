@@ -47,7 +47,7 @@ views:
         entities:
           - light.tak_1
           - switch.plant_light
-          - entity: light.living_room
+          - entity: switch.sofa_light
             # Override the name to use
             name: LR Lights
 
