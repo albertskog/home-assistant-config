@@ -1,59 +1,133 @@
+title: Home
 
-
-title: My Awesome Home
-
-# Exclude entities from "Unused entities" view
-excluded_entities:
-  - weblink.router
 views:
-    # View tab title.
-  - title: Example
-    # Unique id for direct access /lovelace/${id}. If you don't specify one, it is added automatically.
-    id: example
-    # Optional background (overwrites the global background).
-    background: radial-gradient(crimson, skyblue)
-    # Each view can have a different theme applied. Theme should be defined in the frontend.
-    theme: dark-mode
-    # The cards to show on this view.
+  # Main tab
+  - title: Home 
+    id: home
     cards:
-        # The filter card will filter entities for their state
-      - id: peoplehome # Every card needs an ID, if you don't specify one, it is added automatically.
-        type: entity-filter
+      - id: modes
+        type: entities
+        title: Modes
+        entities: 
+          - script.scene_daytime
+          - script.scene_evening
+          - script.scene_night
+      - id: weather
+        type: weather-forecast
+        entity: weather.weather
+      - id: people
+        type: entities
         entities:
           - device_tracker.astrid_sin_iphone
           - device_tracker.alberts_phone
-        state_filter:
-          - 'home'
         card:
           type: glance
-          title: People that are home
-
-        # The picture entity card will represent an entity with a picture
-      - type: picture-entity
-        image: https://www.home-assistant.io/images/default-social.png
-        entity: light.hue_sovrum
-
-    # Specify a tab icon if you want the view tab to be an icon.
-  - icon: mdi:home-assistant
-    # Title of the view. Will be used as the tooltip for tab icon
-    title: Second view
-    cards:
-        # Entities card will take a list of entities and show their state.
-      - type: entities
-        # Title of the entities card
-        title: Example
-        # The entities here will be shown in the same order as specified.
-        # Each entry is an entity ID or a map with extra options.
+      - id: map
+        type: map
+        aspect_ratio: 80%
         entities:
+          - device_tracker.astrid_sin_iphone
+          - device_tracker.alberts_phone
+          - zone.home
+          - zone.mogi
+          - zone.inventas
+  # Light tab
+  - title: Light
+    id: light
+    cards:
+      - id: livingroom
+        title: Livingroom
+        type: entities
+        entities:
+          - group.light_livingroom_ceiling
           - light.tak_1
+          - light.tak_2
+          - light.tak_3
+          - light.hue_vardagsrum
+          - switch.cupboard_light
+          - switch.tv_light_new
+          - switch.sofa_light
           - switch.plant_light
-          - entity: switch.sofa_light
-            # Override the name to use
-            name: LR Lights
+      - id: bedroom
+        title: Bedroom
+        show_header_toggle: false
+        type: entities
+        entities:
+          - light.hue_sovrum
+      - id: flux
+        title: Flux
+        type: entities
+        show_header_toggle: false
+        entities:
+          - switch.flux
+      - id: entrance
+        title: Entrance
+        type: entities
+        entities:
+          - switch.hallway_ceiling_light
+          - switch.hallway_wall_light
+      - id: wakup-light
+        title: Wakeup Light
+        show_header_toggle: false
+        type: entities
+        entities:
+          - sensor.wakeup_alarm_time
+          - sensor.wakeup_start_time_lights
+          - sensor.wakeup_fadein_duration
+          - input_number.wakeup_hour
+          - input_number.wakeup_minutes
+          - input_number.wakeup_duration
+          - input_boolean.wakeup
+          - input_boolean.wakeup_weekends
 
-        # The markdown card will render markdown text.
-      - type: markdown
-        title: Lovelace
-        content: >
-          Welcome to your **Lovelace UI**.
+  # Coffee tab
+  - title: Coffee
+    id: coffee
+    cards:
+      - id: coffee-switch
+        type: entities
+        entities:
+          - switch.coffee_maker_new
+      - id: coffee-automation
+        type: entities
+        title: Automation
+        show_header_toggle: false
+        entities:
+          - input_boolean.coffee_automation
+          - input_datetime.coffee_on_time
+          - input_number.coffee_on_duration
+          - script.coffee_auto_off
+          - script.coffee_trigger
 
+  # Heating tab
+  - title: Heating
+    id: heating
+    cards:
+      - id: heating-switch
+        type: entities
+        entities:
+          - switch.heater_livingroom
+      - id: heating-automation
+        type: entities
+        title: Automation
+        show_header_toggle: false
+        entities:
+          - input_boolean.heating
+          - input_datetime.heating_mortning_start
+          - input_datetime.heating_mortning_end
+          - input_datetime.heating_evening_start
+          - input_datetime.heating_evening_end
+
+  # Control tab
+  - title: Control
+    id: control
+    cards:
+      - id: control-scripts
+        type: entities
+        show_header_toggle: false
+        entities:
+          - script.restart_ha
+          - script.reload_core
+          - script.reload_groups
+          - script.reload_automations
+          - script.reload_scripts
