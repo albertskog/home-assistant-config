@@ -87,7 +87,7 @@ views:
       - id: coffee-switch
         type: entities
         entities:
-          - switch.coffee_maker_new
+          - switch.coffee_maker
       - id: coffee-automation
         type: entities
         title: Automation

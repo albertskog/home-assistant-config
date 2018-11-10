@@ -103,10 +103,6 @@ homekit: !include homekit.yaml
 # iOS
 ios:
 
-# MQTT
-mqtt:
-  broker: localhost
-
 # History and retention
 recorder: !include recorder.yaml
 

@@ -1,5 +1,5 @@
 name: Coffee
 view: true
 entities:
-  - switch.coffee_maker_new
+  - switch.coffee_maker
   - group.coffee_automation

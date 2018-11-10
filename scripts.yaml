@@ -77,7 +77,7 @@ scene_daytime:
           - switch.tv_light_new
           - switch.cupboard_light
           - switch.plant_light
-          - switch.coffee_maker_new
+          - switch.coffee_maker
 
     - service: light.turn_on
       data_template:
@@ -333,11 +333,11 @@ coffee_trigger:
   sequence:
     - service: switch.turn_on
       data_template:
-        entity_id: switch.coffee_maker_new
+        entity_id: switch.coffee_maker
     - delay: '00:{{states.input_number.coffee_on_duration.state | int }}:00'
     - service: switch.turn_off
       data_template:
-        entity_id: switch.coffee_maker_new
+        entity_id: switch.coffee_maker
 
 coffee_auto_off:
   alias: 'Turn off in X minutes'
@@ -345,4 +345,4 @@ coffee_auto_off:
     - delay: '00:{{states.input_number.coffee_on_duration.state | int }}:00'
     - service: switch.turn_off
       data_template:
-        entity_id: switch.coffee_maker_new
+        entity_id: switch.coffee_maker
