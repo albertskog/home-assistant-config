@@ -50,10 +50,10 @@ views:
           - switch.plant_light
       - id: bedroom
         title: Bedroom
-        show_header_toggle: false
         type: entities
         entities:
           - light.hue_sovrum
+          - light.bed_lamp
       - id: flux
         title: Flux
         type: entities
