@@ -1,0 +1,19 @@
+# Coffee automation
+coffee_trigger:
+  alias: 'Turn on for X minutes'
+  sequence:
+    - service: switch.turn_on
+      data_template:
+        entity_id: switch.coffee_maker
+    - delay: '00:{{states.input_number.coffee_on_duration.state | int }}:00'
+    - service: switch.turn_off
+      data_template:
+        entity_id: switch.coffee_maker
+
+coffee_auto_off:
+  alias: 'Turn off in X minutes'
+  sequence:
+    - delay: '00:{{states.input_number.coffee_on_duration.state | int }}:00'
+    - service: switch.turn_off
+      data_template:
+        entity_id: switch.coffee_maker

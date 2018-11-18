@@ -5,6 +5,7 @@
 !input
 !groups
 !groups/views
+!scripts
 !.gitignore
 !.HA_VERSION
 !.yamllint
