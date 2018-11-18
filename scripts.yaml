@@ -70,6 +70,7 @@ scene_daytime:
         entity_id:
           - light.hue_sovrum
           - light.hue_vardagsrum
+          - light.bed_lamp
 
     - service: switch.turn_off
       data_template:
