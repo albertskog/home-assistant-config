@@ -8,6 +8,7 @@
           - light.tak_3
           - light.hue_vardagsrum
           - light.hue_sovrum
+          - light.bed_lamp
       service: light.turn_off
     - data:
         entity_id:
