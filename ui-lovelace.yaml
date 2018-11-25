@@ -1,4 +1,7 @@
 title: Home
+resources:
+  - url: /local/state-history-card/state-history-card.js
+    type: js
 
 views:
   # Main tab
@@ -117,6 +120,15 @@ views:
           - input_datetime.heating_mortning_end
           - input_datetime.heating_evening_start
           - input_datetime.heating_evening_end
+  
+  # Location tab.
+  - title: Location
+    id: location
+    cards:
+      - type: "custom:state-history-card"
+        entity: device_tracker.alberts_phone
+      - type: "custom:state-history-card"
+        entity: device_tracker.astrid_sin_iphone
 
   # Control tab
   - title: Control
