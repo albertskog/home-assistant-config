@@ -2,3 +2,16 @@
   platform: html5
   gcm_api_key: !secret gcm_api_key
   gcm_sender_id: !secret gcm_sender_id
+
+- name: email
+  platform: smtp
+  server: !secret email_server
+  port: !secret email_port
+  timeout: 15
+  sender: !secret email_user
+  encryption: tls
+  username: !secret email_user
+  password: !secret email_password
+  recipient:
+    - !secret email_recipient
+  sender_name: Home Assistant
