@@ -1,15 +1,8 @@
-- name: Flux
-  platform: flux
-  lights:
+- name: Circadian Lighting
+  platform: circadian_lighting
+  lights_ct:
+    - light.hue_sovrum
     - light.hue_vardagsrum
     - light.tak_1
     - light.tak_2
     - light.tak_3
-  start_time: '15:00'
-  stop_time: '21:00'
-  start_colortemp: 4000
-  sunset_colortemp: 3000
-  stop_colortemp: 2200
-  disable_brightness_adjust: false
-  mode: mired
-

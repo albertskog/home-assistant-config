@@ -63,6 +63,7 @@ views:
         show_header_toggle: false
         entities:
           - switch.flux
+          - switch.circadian_lighting_circadian_lighting
       - id: entrance
         title: Entrance
         type: entities

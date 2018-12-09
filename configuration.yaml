@@ -106,8 +106,11 @@ ios:
 # History and retention
 recorder: !include recorder.yaml
 
-# Flux settings
+# Switch settings
 switch: !include switch.yaml
 
 # Notofications
 notify: !include notify.yaml
+
+# Circadian light settings
+circadian_lighting: !include circadian_lighting.yaml
