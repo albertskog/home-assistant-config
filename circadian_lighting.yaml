@@ -3,5 +3,5 @@ sunrise_time: '07:00'
 sunset_time: '18:00'
 min_colortemp: 2200
 max_colortemp: 4000
-interval: 30
-transition: 10
+interval: 600
+transition: 600

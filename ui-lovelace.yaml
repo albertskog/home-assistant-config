@@ -57,12 +57,11 @@ views:
         entities:
           - light.hue_sovrum
           - light.bed_lamp
-      - id: flux
-        title: Flux
+      - id: circadian
+        title: Automatic Light Control
         type: entities
         show_header_toggle: false
         entities:
-          - switch.flux
           - switch.circadian_lighting_circadian_lighting
       - id: entrance
         title: Entrance
@@ -144,3 +143,7 @@ views:
           - script.reload_groups
           - script.reload_automations
           - script.reload_scripts
+      - id: circadian-values
+        type: history-graph
+        entities:
+          - sensor.circadian_values
