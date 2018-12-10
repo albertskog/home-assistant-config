@@ -1,7 +1,6 @@
 - name: Circadian Lighting
   platform: circadian_lighting
   lights_ct:
-    - light.hue_sovrum
     - light.hue_vardagsrum
     - light.tak_1
     - light.tak_2
