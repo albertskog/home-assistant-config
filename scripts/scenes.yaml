@@ -94,7 +94,6 @@ scene_evening:
           - switch.circadian_lighting_circadian_lighting
           - switch.hallway_ceiling_light
           - switch.hallway_wall_light
-          - switch.heater_livingroom
     - service: light.turn_on
       data_template:
         entity_id: light.tak_1

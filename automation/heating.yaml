@@ -65,3 +65,25 @@
   trigger:
     platform: template
     value_template: "{{ states('sensor.time') == (states.input_datetime.heating_evening_end.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+
+# Turn the heating on when someone comes home
+- alias: Presence Heating On
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.heater_livingroom
+  trigger:
+    - platform: state
+      entity_id: device_tracker.alberts_phone, device_tracker.astrid_sin_iphone
+      from: not_home
+      to: 'home'
+  condition:
+    - condition: state
+      entity_id: input_boolean.heating
+      state: 'on'
+    - condition: template
+      value_template: >-
+        {{
+          not (is_state('device_tracker.alberts_phone', 'home')
+           and is_state('device_tracker.astrid_sin_iphone', 'home'))
+        }}
