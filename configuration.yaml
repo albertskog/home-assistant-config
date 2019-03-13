@@ -84,7 +84,7 @@ input_boolean: !include input/input_boolean.yaml
 input_datetime: !include input/input_datetime.yaml
 
 # Apple TV
-apple_tv: !include apple_tv.yaml
+#apple_tv: !include apple_tv.yaml
 
 # Tellstick
 tellstick:
