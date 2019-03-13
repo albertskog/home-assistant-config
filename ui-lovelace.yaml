@@ -33,7 +33,7 @@ views:
           - device_tracker.alberts_phone
           - zone.home
           - zone.mogi
-          - zone.inventas
+          - zone.acando
   # Light tab
   - title: Light
     id: light
