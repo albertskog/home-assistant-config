@@ -5,3 +5,17 @@
     - light.tak_1
     - light.tak_2
     - light.tak_3
+
+- name: Flux
+  platform: flux
+  lights:
+    - light.hue_vardagsrum
+    - light.tak_1
+    - light.tak_2
+    - light.tak_3
+  start_time: '17:00'
+  stop_time: '19:00'
+  start_colortemp: 4000
+  sunset_colortemp: 2200
+  stop_colortemp: 2200
+  brightness: 0

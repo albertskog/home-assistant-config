@@ -6,3 +6,4 @@ entities:
   - group.light_hallway
   - group.wakeup_light
   - switch.circadian_lighting_circadian_lighting
+  - switch.flux
