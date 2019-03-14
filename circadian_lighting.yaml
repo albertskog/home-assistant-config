@@ -1,7 +1,0 @@
-# https://community.home-assistant.io/t/circadian-lighting-custom-component/
-sunrise_time: '07:00'
-sunset_time: '18:00'
-min_colortemp: 2200
-max_colortemp: 4000
-interval: 600
-transition: 600

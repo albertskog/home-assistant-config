@@ -109,8 +109,5 @@ recorder: !include recorder.yaml
 # Switch settings
 switch: !include switch.yaml
 
-# Notofications
+# Notifications
 notify: !include notify.yaml
-
-# Circadian light settings
-circadian_lighting: !include circadian_lighting.yaml
