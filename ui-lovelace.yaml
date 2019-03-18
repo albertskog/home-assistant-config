@@ -62,7 +62,7 @@ views:
         type: entities
         show_header_toggle: false
         entities:
-          - switch.flux
+          - input_boolean.auto_sunset
       - id: entrance
         title: Entrance
         type: entities
@@ -143,7 +143,3 @@ views:
           - script.reload_groups
           - script.reload_automations
           - script.reload_scripts
-      - id: circadian-values
-        type: history-graph
-        entities:
-          - sensor.circadian_values

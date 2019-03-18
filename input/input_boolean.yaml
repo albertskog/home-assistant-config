@@ -7,6 +7,11 @@ wakeup_weekends:
   name: 'Wakeup weekends'
   icon: mdi:power
 
+# Automatic sunset
+auto_sunset:
+  name: Enable Automatic Sunset
+  icon: mdi:power
+
 # Heating control
 heating:
   name: 'Enable heating automation'

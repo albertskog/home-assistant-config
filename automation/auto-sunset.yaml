@@ -1,0 +1,66 @@
+# Automatic Sunset
+- alias: Automatic Sunset 1
+  hide_entity: true
+  trigger:
+    platform: time
+    at: '17:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.auto_sunset
+      state: 'on'
+    - condition: state
+      entity_id: group.tak
+      state: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.tak_1
+          - light.tak_2
+          - light.tak_3
+        brightness_pct: 50
+        transition: 1800
+
+- alias: Automatic Sunset 2
+  hide_entity: true
+  trigger:
+    platform: time
+    at: '17:30'
+  condition:
+    - condition: state
+      entity_id: input_boolean.auto_sunset
+      state: 'on'
+    - condition: state
+      entity_id: group.tak
+      state: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.tak_1
+          - light.tak_2
+          - light.tak_3
+        color_temp: 454
+        transition: 1800
+
+- alias: Automatic Sunset 3
+  hide_entity: true
+  trigger:
+    platform: time
+    at: '18:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.auto_sunset
+      state: 'on'
+    - condition: state
+      entity_id: group.tak
+      state: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.tak_1
+          - light.tak_2
+          - light.tak_3
+        brightness_pct: 1
+        transition: 1800
