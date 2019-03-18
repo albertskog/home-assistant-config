@@ -1,9 +1,0 @@
-name: Heating
-view: true
-entities:
-  - input_boolean.heating
-  - switch.heater_livingroom
-  - input_datetime.heating_evening_end
-  - input_datetime.heating_evening_start
-  - input_datetime.heating_mortning_end
-  - input_datetime.heating_mortning_start

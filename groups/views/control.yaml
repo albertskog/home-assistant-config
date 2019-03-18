@@ -1,4 +1,0 @@
-name: Control
-view: true
-entities:
-  - group.hass_control

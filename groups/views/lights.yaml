@@ -1,9 +1,0 @@
-name: Light
-view: true
-entities:
-  - group.light_livingroom
-  - group.light_bedroom
-  - group.light_hallway
-  - group.wakeup_light
-  - switch.circadian_lighting_circadian_lighting
-  - switch.flux
