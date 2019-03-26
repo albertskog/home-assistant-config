@@ -3,13 +3,13 @@
   hide_entity: true
   trigger:
     platform: time
-    at: '17:00'
+    at: '17:00:00'
   condition:
     - condition: state
       entity_id: input_boolean.auto_sunset
       state: 'on'
     - condition: state
-      entity_id: group.tak
+      entity_id: group.light_livingroom_ceiling
       state: 'on'
   action:
     - service: light.turn_on
@@ -25,13 +25,13 @@
   hide_entity: true
   trigger:
     platform: time
-    at: '17:30'
+    at: '17:30:00'
   condition:
     - condition: state
       entity_id: input_boolean.auto_sunset
       state: 'on'
     - condition: state
-      entity_id: group.tak
+      entity_id: group.light_livingroom_ceiling
       state: 'on'
   action:
     - service: light.turn_on
@@ -47,13 +47,13 @@
   hide_entity: true
   trigger:
     platform: time
-    at: '18:00'
+    at: '18:00:00'
   condition:
     - condition: state
       entity_id: input_boolean.auto_sunset
       state: 'on'
     - condition: state
-      entity_id: group.tak
+      entity_id: group.light_livingroom_ceiling
       state: 'on'
   action:
     - service: light.turn_on
