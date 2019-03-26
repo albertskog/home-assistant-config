@@ -18,6 +18,7 @@
           - light.tak_1
           - light.tak_2
           - light.tak_3
+          - light.hue_vardagsrum
         brightness_pct: 50
         transition: 1800
 
@@ -40,6 +41,7 @@
           - light.tak_1
           - light.tak_2
           - light.tak_3
+          - light.hue_vardagsrum
         color_temp: 454
         transition: 1800
 
@@ -62,5 +64,6 @@
           - light.tak_1
           - light.tak_2
           - light.tak_3
+          - light.hue_vardagsrum
         brightness_pct: 1
         transition: 1800
