@@ -121,6 +121,26 @@ views:
           - input_datetime.heating_evening_start
           - input_datetime.heating_evening_end
   
+  # Plants tab
+  - title: Plants
+    id: plants
+    cards:
+      - id: plant-moisture-gauge
+        type: gauge
+        unit: V
+        min: 1.6
+        max: 3.3
+        severity:
+          green: 2
+          yellow: 2.5
+          red: 3
+        entity: sensor.plant_moisture
+      - id: plant-moisture-history
+        type: history-graph
+        hours_to_show: 80
+        entities:
+          - sensor.plant_moisture
+
   # Location tab.
   - title: Location
     id: location
