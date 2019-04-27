@@ -20,7 +20,7 @@
           - light.tak_3
           - light.hue_vardagsrum
         brightness_pct: 50
-        transition: 1800
+        transition: 900
 
 - alias: Automatic Sunset 2
   hide_entity: true
@@ -43,7 +43,7 @@
           - light.tak_3
           - light.hue_vardagsrum
         color_temp: 454
-        transition: 1800
+        transition: 900
 
 - alias: Automatic Sunset 3
   hide_entity: true
@@ -64,6 +64,6 @@
           - light.tak_1
           - light.tak_2
           - light.tak_3
-          - light.hue_vardagsrum
-        brightness_pct: 1
-        transition: 1800
+          #- light.hue_vardagsrum
+        brightness: 1
+        transition: 900
