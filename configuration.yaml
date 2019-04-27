@@ -116,3 +116,5 @@ notify: !include notify.yaml
 # Lovelace
 lovelace:
   mode: yaml
+
+system_health:
