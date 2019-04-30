@@ -6,7 +6,7 @@ resources:
 views:
   # Main tab
   - title: Home 
-    id: home
+    path: home
     cards:
       - id: modes
         type: entities
@@ -18,6 +18,28 @@ views:
       - id: weather
         type: weather-forecast
         entity: weather.weather
+      - id: livingroom-temperature-gauge
+        name: Livingroom
+        type: gauge
+        unit: °C
+        min: -30
+        max: 40
+        severity:
+          green: 18
+          yellow: 25
+          red: 30
+        entity: sensor.livingroom_temperature
+      - id: outdoor-temperature-gauge
+        name: Outdoor
+        type: gauge
+        unit: °C
+        min: -30
+        max: 40
+        severity:
+          green: 18
+          yellow: 25
+          red: 30
+        entity: sensor.outdoor_temperature
       - id: people
         type: entities
         entities:
@@ -36,7 +58,7 @@ views:
           - zone.acando
   # Light tab
   - title: Light
-    id: light
+    path: light
     cards:
       - id: livingroom
         title: Livingroom
@@ -85,12 +107,12 @@ views:
 
   # Coffee tab
   - title: Coffee
-    id: coffee
+    path: coffee
     cards:
       - id: coffee-switch
         type: entities
         entities:
-          - switch.coffee_maker
+          - switch.coffee_maker_2
       - id: coffee-automation
         type: entities
         title: Automation
@@ -104,7 +126,7 @@ views:
 
   # Heating tab
   - title: Heating
-    id: heating
+    path: heating
     cards:
       - id: heating-switch
         type: entities
@@ -123,7 +145,7 @@ views:
   
   # Plants tab
   - title: Plants
-    id: plants
+    path: plants
     cards:
       - id: plant-moisture-gauge
         type: gauge
@@ -143,7 +165,7 @@ views:
 
   # Location tab.
   - title: Location
-    id: location
+    path: location
     cards:
       - type: "custom:state-history-card"
         entity: device_tracker.alberts_phone
@@ -152,7 +174,7 @@ views:
 
   # Control tab
   - title: Control
-    id: control
+    path: control
     cards:
       - id: control-scripts
         type: entities
