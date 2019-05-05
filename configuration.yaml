@@ -103,3 +103,5 @@ ios:
 switch: !include switch.yaml
 
 notify: !include notify.yaml
+
+influxdb: !include influxdb.yaml
