@@ -184,16 +184,16 @@ views:
             name: Restart HA
             service: homeassistant.restart
           - type: call-service
-            name: Reload-Core
+            name: Reload Core
             service: homeassistant.reload_core_config
           - type: call-service
-            name: Reload-Groups
+            name: Reload Groups
             service: group.reload
           - type: call-service
-            name: Reload-Automations
+            name: Reload Automations
             service: automation.reload
           - type: call-service
-            name: Reload-Scripts
+            name: Reload Scripts
             service: script.reload
           - type: call-service
             service: frontend.reload_themes
