@@ -1,4 +1,4 @@
-# Turn everything off when the last person leaves on weekdays
+# Turn everything off when the last person leaves
 - alias: Weekday Morning Off
   action:
     - data:
@@ -22,6 +22,9 @@
       from: 'home'
       to: not_home
   condition:
+    - condition: state
+      entity_id: input_boolean.presence_lighting
+      state: 'on'
     - condition: template
       value_template: >-
         {{
@@ -39,6 +42,9 @@
       from: not_home
       to: 'home'
   condition:
+    - condition: state
+      entity_id: input_boolean.presence_lighting
+      state: 'on'
     - condition: template
       value_template: >-
         {{

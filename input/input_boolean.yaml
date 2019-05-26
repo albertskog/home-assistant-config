@@ -9,15 +9,20 @@ wakeup_weekends:
 
 # Automatic sunset
 auto_sunset:
-  name: Enable Automatic Sunset
+  name: Automatic Sunset
+  icon: mdi:power
+
+# Presence based light
+presence_lighting:
+  name: Presence Based Lighting
   icon: mdi:power
 
 # Heating control
 heating:
-  name: 'Enable heating automation'
+  name: 'Enable Heating Automation'
   icon: mdi:power
 
 # Coffee automation
 coffee_automation:
-  name: 'Enable coffee automation'
+  name: 'Enable Coffee Automation'
   icon: mdi:power

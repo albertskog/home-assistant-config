@@ -79,11 +79,12 @@ views:
         entities:
           - light.hue_sovrum
           - light.bed_lamp
-      - id: circadian
+      - id: light-automation
         title: Automatic Light Control
         type: entities
         show_header_toggle: false
         entities:
+          - input_boolean.presence_lighting
           - input_boolean.auto_sunset
       - id: entrance
         title: Entrance
