@@ -39,3 +39,19 @@
       friendly_name: 'Fade-in duration'
       value_template: '{{ states.input_number.wakeup_duration.state | int }}'
       unit_of_measurement: 'min'
+
+# Plant watering
+- platform: template
+  sensors:
+    plants_need_water:
+      friendly_name: 'Plants Need Water'
+      icon_template: mdi:water_outline
+      value_template: >
+        {% if((states.sensor.plant_moisture_1.state|float >= states.input_number.plant_moisture_threshold_1.state|float) or
+              (states.sensor.plant_moisture_2.state|float >= states.input_number.plant_moisture_threshold_2.state|float) or
+              (states.sensor.plant_moisture_3.state|float >= states.input_number.plant_moisture_threshold_3.state|float) or
+              (states.sensor.plant_moisture_4.state|float >= states.input_number.plant_moisture_threshold_4.state|float)) %}
+          {{ 1 }}
+        {% else %}
+          {{ 0 }}
+        {% endif %}
