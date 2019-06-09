@@ -148,7 +148,20 @@ views:
   - title: Plants
     path: plants
     cards:
-      - id: plant-moisture-gauge
+      - id: pump-switch
+        type: entities
+        entities:
+          - switch.water_pump_1
+      - id: plant-moisture-history
+        type: history-graph
+        hours_to_show: 80
+        entities:
+          - sensor.plant_moisture_1
+          - sensor.plant_moisture_2
+          - sensor.plant_moisture_3
+          - sensor.plant_moisture_4
+          - switch.water_pump_1
+      - id: plant-moisture-gauge-1
         type: gauge
         unit: V
         min: 1.6
@@ -157,12 +170,37 @@ views:
           green: 2
           yellow: 2.5
           red: 3
-        entity: sensor.plant_moisture
-      - id: plant-moisture-history
-        type: history-graph
-        hours_to_show: 80
-        entities:
-          - sensor.plant_moisture
+        entity: sensor.plant_moisture_1
+      - id: plant-moisture-gauge-2
+        type: gauge
+        unit: V
+        min: 1.6
+        max: 3.3
+        severity:
+          green: 2
+          yellow: 2.5
+          red: 3
+        entity: sensor.plant_moisture_2
+      - id: plant-moisture-gauge-3
+        type: gauge
+        unit: V
+        min: 1.6
+        max: 3.3
+        severity:
+          green: 2
+          yellow: 2.5
+          red: 3
+        entity: sensor.plant_moisture_3
+      - id: plant-moisture-gauge-4
+        type: gauge
+        unit: V
+        min: 1.6
+        max: 3.3
+        severity:
+          green: 2
+          yellow: 2.5
+          red: 3
+        entity: sensor.plant_moisture_4
 
   # Location tab.
   - title: Location
