@@ -44,13 +44,30 @@
 - platform: template
   sensors:
     plants_need_water:
-      friendly_name: 'Plants Need Water'
+      friendly_name: 'Group 1 Needs Water'
       icon_template: mdi:water_outline
       value_template: >
         {% if((states.sensor.plant_moisture_1.state|float >= states.input_number.plant_moisture_threshold_1.state|float) or
               (states.sensor.plant_moisture_2.state|float >= states.input_number.plant_moisture_threshold_2.state|float) or
               (states.sensor.plant_moisture_3.state|float >= states.input_number.plant_moisture_threshold_3.state|float) or
-              (states.sensor.plant_moisture_4.state|float >= states.input_number.plant_moisture_threshold_4.state|float)) %}
+              (states.sensor.plant_moisture_4.state|float >= states.input_number.plant_moisture_threshold_4.state|float) or
+              (states.sensor.plant_moisture_5.state|float >= states.input_number.plant_moisture_threshold_5.state|float) or
+              (states.sensor.plant_moisture_6.state|float >= states.input_number.plant_moisture_threshold_6.state|float)) %}
+          {{ 1 }}
+        {% else %}
+          {{ 0 }}
+        {% endif %}
+
+    plants_need_water_2:
+      friendly_name: 'Group 2 Needs Water'
+      icon_template: mdi:water_outline
+      value_template: >
+        {% if((states.sensor.plant_moisture_7.state|float >= states.input_number.plant_moisture_threshold_7.state|float) or
+              (states.sensor.plant_moisture_8.state|float >= states.input_number.plant_moisture_threshold_8.state|float) or
+              (states.sensor.plant_moisture_9.state|float >= states.input_number.plant_moisture_threshold_9.state|float) or
+              (states.sensor.plant_moisture_10.state|float >= states.input_number.plant_moisture_threshold_10.state|float) or
+              (states.sensor.plant_moisture_11.state|float >= states.input_number.plant_moisture_threshold_11.state|float) or
+              (states.sensor.plant_moisture_12.state|float >= states.input_number.plant_moisture_threshold_12.state|float)) %}
           {{ 1 }}
         {% else %}
           {{ 0 }}

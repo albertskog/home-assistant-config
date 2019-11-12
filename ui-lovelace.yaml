@@ -148,98 +148,238 @@ views:
   - title: Plants
     path: plants
     cards:
-      - id: plant-status
-        type: entities
-        entities:
-          - switch.water_pump_1
-          - entity: sensor.plants_need_water
-            icon: mdi:cactus
-      - id: plant-moisture-history
-        type: history-graph
-        hours_to_show: 80
-        entities:
-          - sensor.plant_moisture_1
-          - sensor.plant_moisture_2
-          - sensor.plant_moisture_3
-          - sensor.plant_moisture_4
-          - switch.water_pump_1
-          - sensor.plants_need_water
-      - id: plant-1
+      - id: group-1
         type: vertical-stack
         cards:
-          - id: plant-moisture-gauge-1
-            name: Aloe Vera
-            type: gauge
-            unit: V
-            min: 1.6
-            max: 3.3
-            severity:
-              green: 2
-              yellow: 2.5
-              red: 3
-            entity: sensor.plant_moisture_1
-          - type: entities
-            entities:
-              - entity: input_number.plant_moisture_threshold_1
-                name: Threshold
-                icon: mdi:chart-line
-      - id: plant-2
+        - id: plant-status
+          type: entities
+          entities:
+            - switch.water_pump_1
+            - entity: sensor.plants_need_water
+              icon: mdi:cactus
+        - id: plant-moisture-history
+          type: history-graph
+          hours_to_show: 80
+          entities:
+            - sensor.plant_moisture_1
+            - sensor.plant_moisture_2
+            - sensor.plant_moisture_3
+            - sensor.plant_moisture_4
+            - sensor.plant_moisture_5
+            - switch.water_pump_1
+            - sensor.plants_need_water
+        - id: plant-1
+          type: vertical-stack
+          cards:
+            - id: plant-moisture-gauge-1
+              name: Aloe Vera
+              type: gauge
+              unit: V
+              min: 1.6
+              max: 3.3
+              severity:
+                green: 2
+                yellow: 2.5
+                red: 3
+              entity: sensor.plant_moisture_1
+            - type: entities
+              entities:
+                - entity: input_number.plant_moisture_threshold_1
+                  name: Threshold
+                  icon: mdi:chart-line
+        - id: plant-2
+          type: vertical-stack
+          cards:
+            - id: plant-moisture-gauge-2
+              name: Elefantöra
+              type: gauge
+              unit: V
+              min: 1.6
+              max: 3.3
+              severity:
+                green: 2
+                yellow: 2.5
+                red: 3
+              entity: sensor.plant_moisture_2
+            - type: entities
+              entities:
+                - entity: input_number.plant_moisture_threshold_2
+                  name: Threshold
+                  icon: mdi:chart-line
+        - id: plant-3
+          type: vertical-stack
+          cards:
+            - id: plant-moisture-gauge-3
+              name: Orkidé
+              type: gauge
+              unit: V
+              min: 1.6
+              max: 3.3
+              severity:
+                green: 2
+                yellow: 2.5
+                red: 3
+              entity: sensor.plant_moisture_3
+            - type: entities
+              entities:
+                - entity: input_number.plant_moisture_threshold_3
+                  name: Threshold
+                  icon: mdi:chart-line
+        - id: plant-4
+          type: vertical-stack
+          cards:
+            - id: plant-moisture-gauge-4
+              name: Suckulent
+              type: gauge
+              unit: V
+              min: 1.6
+              max: 3.3
+              severity:
+                green: 2
+                yellow: 2.5
+                red: 3
+              entity: sensor.plant_moisture_4
+            - type: entities
+              entities:
+                - entity: input_number.plant_moisture_threshold_4
+                  name: Threshold
+                  icon: mdi:chart-line
+        - id: plant-5
+          type: vertical-stack
+          cards:
+            - id: plant-moisture-gauge-5
+              name: Paradisträd
+              type: gauge
+              unit: V
+              min: 1.6
+              max: 3.3
+              severity:
+                green: 2
+                yellow: 2.5
+                red: 3
+              entity: sensor.plant_moisture_5
+            - type: entities
+              entities:
+                - entity: input_number.plant_moisture_threshold_5
+                  name: Threshold
+                  icon: mdi:chart-line
+
+      # Group 2
+      - id: group-2
         type: vertical-stack
         cards:
-          - id: plant-moisture-gauge-2
-            name: Elefantöra
-            type: gauge
-            unit: V
-            min: 1.6
-            max: 3.3
-            severity:
-              green: 2
-              yellow: 2.5
-              red: 3
-            entity: sensor.plant_moisture_2
-          - type: entities
-            entities:
-              - entity: input_number.plant_moisture_threshold_2
-                name: Threshold
-                icon: mdi:chart-line
-      - id: plant-3
-        type: vertical-stack
-        cards:
-          - id: plant-moisture-gauge-3
-            name: Orkidé
-            type: gauge
-            unit: V
-            min: 1.6
-            max: 3.3
-            severity:
-              green: 2
-              yellow: 2.5
-              red: 3
-            entity: sensor.plant_moisture_3
-          - type: entities
-            entities:
-              - entity: input_number.plant_moisture_threshold_3
-                name: Threshold
-                icon: mdi:chart-line
-      - id: plant-4
-        type: vertical-stack
-        cards:
-          - id: plant-moisture-gauge-4
-            name: Suckulent
-            type: gauge
-            unit: V
-            min: 1.6
-            max: 3.3
-            severity:
-              green: 2
-              yellow: 2.5
-              red: 3
-            entity: sensor.plant_moisture_4
-          - type: entities
-            entities:
-              - entity: input_number.plant_moisture_threshold_4
-                name: Threshold
-                icon: mdi:chart-line
+        - id: plant-status-2
+          type: entities
+          entities:
+            - switch.water_pump_2
+            - entity: sensor.plants_need_water_2
+              icon: mdi:cactus
+        - id: plant-moisture-history-2
+          type: history-graph
+          hours_to_show: 80
+          entities:
+            - sensor.plant_moisture_7
+            - sensor.plant_moisture_8
+            - sensor.plant_moisture_9
+            - sensor.plant_moisture_10
+            - sensor.plant_moisture_11
+            - switch.water_pump_2
+            - sensor.plants_need_water_2
+        - id: plant-7
+          type: vertical-stack
+          cards:
+            - id: plant-moisture-gauge-7
+              name: Sprättiväg
+              type: gauge
+              unit: V
+              min: 1.6
+              max: 3.3
+              severity:
+                green: 2
+                yellow: 2.5
+                red: 3
+              entity: sensor.plant_moisture_7
+            - type: entities
+              entities:
+                - entity: input_number.plant_moisture_threshold_7
+                  name: Threshold
+                  icon: mdi:chart-line
+        - id: plant-8
+          type: vertical-stack
+          cards:
+            - id: plant-moisture-gauge-8
+              name: Avocado mini
+              type: gauge
+              unit: V
+              min: 1.6
+              max: 3.3
+              severity:
+                green: 2
+                yellow: 2.5
+                red: 3
+              entity: sensor.plant_moisture_8
+            - type: entities
+              entities:
+                - entity: input_number.plant_moisture_threshold_8
+                  name: Threshold
+                  icon: mdi:chart-line
+        - id: plant-9
+          type: vertical-stack
+          cards:
+            - id: plant-moisture-gauge-9
+              name: Chili
+              type: gauge
+              unit: V
+              min: 1.6
+              max: 3.3
+              severity:
+                green: 2
+                yellow: 2.5
+                red: 3
+              entity: sensor.plant_moisture_9
+            - type: entities
+              entities:
+                - entity: input_number.plant_moisture_threshold_9
+                  name: Threshold
+                  icon: mdi:chart-line
+        - id: plant-10
+          type: vertical-stack
+          cards:
+            - id: plant-moisture-gauge-10
+              name: Avocado
+              type: gauge
+              unit: V
+              min: 1.6
+              max: 3.3
+              severity:
+                green: 2
+                yellow: 2.5
+                red: 3
+              entity: sensor.plant_moisture_10
+            - type: entities
+              entities:
+                - entity: input_number.plant_moisture_threshold_10
+                  name: Threshold
+                  icon: mdi:chart-line
+        - id: plant-11
+          type: vertical-stack
+          cards:
+            - id: plant-moisture-gauge-11
+              name: Aloe Vera stor
+              type: gauge
+              unit: V
+              min: 1.6
+              max: 3.3
+              severity:
+                green: 2
+                yellow: 2.5
+                red: 3
+              entity: sensor.plant_moisture_11
+            - type: entities
+              entities:
+                - entity: input_number.plant_moisture_threshold_11
+                  name: Threshold
+                  icon: mdi:chart-line
 
   # Location tab.
   - title: Location

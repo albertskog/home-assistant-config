@@ -33,12 +33,6 @@ plant_moisture_threshold_1:
   max: 3.4
   step: 0.1
 
-plant_moisture_threshold_1:
-  name: Plant 1 threshold
-  min: 1
-  max: 3.4
-  step: 0.1
-
 plant_moisture_threshold_2:
   name: Plant 2 threshold
   min: 1
@@ -53,6 +47,54 @@ plant_moisture_threshold_3:
 
 plant_moisture_threshold_4:
   name: Plant 4 threshold
+  min: 1
+  max: 3.4
+  step: 0.1
+
+plant_moisture_threshold_5:
+  name: Plant 5 threshold
+  min: 1
+  max: 3.4
+  step: 0.1
+
+plant_moisture_threshold_6:
+  name: Plant 6 threshold
+  min: 1
+  max: 3.4
+  step: 0.1
+
+plant_moisture_threshold_7:
+  name: Plant 7 threshold
+  min: 1
+  max: 3.4
+  step: 0.1
+
+plant_moisture_threshold_8:
+  name: Plant 8 threshold
+  min: 1
+  max: 3.4
+  step: 0.1
+
+plant_moisture_threshold_9:
+  name: Plant 9 threshold
+  min: 1
+  max: 3.4
+  step: 0.1
+
+plant_moisture_threshold_10:
+  name: Plant 10 threshold
+  min: 1
+  max: 3.4
+  step: 0.1
+
+plant_moisture_threshold_11:
+  name: Plant 11 threshold
+  min: 1
+  max: 3.4
+  step: 0.1
+
+plant_moisture_threshold_12:
+  name: Plant 12 threshold
   min: 1
   max: 3.4
   step: 0.1
