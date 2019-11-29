@@ -38,8 +38,6 @@ discovery:
   ignore:
     - philips_hue
     - apple_tv
-  enable:
-    - homekit
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -97,10 +95,10 @@ device_tracker: !include device_tracker.yaml
 
 homekit: !include homekit.yaml
 
-ios:
-
 switch: !include switch.yaml
 
 notify: !include notify.yaml
 
 influxdb: !include influxdb.yaml
+
+mobile_app:

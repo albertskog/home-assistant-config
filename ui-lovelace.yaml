@@ -43,19 +43,21 @@ views:
       - id: people
         type: entities
         entities:
-          - device_tracker.astrid_sin_iphone
-          - device_tracker.alberts_phone
+          - device_tracker.astrid_sin_iphone_2
+          - device_tracker.alberts_iphone
         card:
           type: glance
       - id: map
         type: map
         aspect_ratio: 80%
         entities:
-          - device_tracker.astrid_sin_iphone
-          - device_tracker.alberts_phone
+          - device_tracker.astrid_sin_iphone_2
+          - device_tracker.alberts_iphone
           - zone.home
           - zone.mogi
           - zone.acando
+          - zone.airthings
+          - zone.sats_carl_berner
   # Light tab
   - title: Light
     path: light
@@ -386,9 +388,9 @@ views:
     path: location
     cards:
       - type: "custom:state-history-card"
-        entity: device_tracker.alberts_phone
+        entity: device_tracker.alberts_iphone
       - type: "custom:state-history-card"
-        entity: device_tracker.astrid_sin_iphone
+        entity: device_tracker.astrid_sin_iphone_2
 
   # Control tab
   - title: Control

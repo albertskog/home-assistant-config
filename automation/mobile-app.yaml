@@ -1,0 +1,9 @@
+- alias: "Action Turn Lights Off"
+  initial_state: true
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: 'lights-off'
+  action:
+    service: script.scene_night
