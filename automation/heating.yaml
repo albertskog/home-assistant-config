@@ -11,8 +11,8 @@
     - condition: template
       value_template: >-
         {{
-          (is_state('device_tracker.alberts_phone', 'home')
-           or is_state('device_tracker.astrid_sin_iphone', 'home'))
+          (is_state('device_tracker.alberts_iphone', 'home')
+           or is_state('device_tracker.astrid_sin_iphone_2', 'home'))
         }}
   trigger:
     platform: template
@@ -31,8 +31,8 @@
     - condition: template
       value_template: >-
         {{
-          not (is_state('device_tracker.alberts_phone', 'home')
-           or is_state('device_tracker.astrid_sin_iphone', 'home'))
+          not (is_state('device_tracker.alberts_iphone', 'home')
+           or is_state('device_tracker.astrid_sin_iphone_2', 'home'))
         }}
   trigger:
     platform: template
@@ -74,7 +74,7 @@
         entity_id: switch.heater_livingroom
   trigger:
     - platform: state
-      entity_id: device_tracker.alberts_phone, device_tracker.astrid_sin_iphone
+      entity_id: device_tracker.alberts_iphone, device_tracker.astrid_sin_iphone_2
       from: not_home
       to: 'home'
   condition:
@@ -84,6 +84,6 @@
     - condition: template
       value_template: >-
         {{
-          not (is_state('device_tracker.alberts_phone', 'home')
-           and is_state('device_tracker.astrid_sin_iphone', 'home'))
+          not (is_state('device_tracker.alberts_iphone', 'home')
+           and is_state('device_tracker.astrid_sin_iphone_2', 'home'))
         }}
