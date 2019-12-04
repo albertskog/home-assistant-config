@@ -3,6 +3,14 @@ background: var(--background-image)
 resources:
   - url: /local/state-history-card/state-history-card.js
     type: js
+  - url: /community_plugin/compact-custom-header/compact-custom-header.js
+    type: module
+
+cch:
+  background: rgba(155, 155, 155, 0.25)
+  clock_format: 24
+  swipe_animate: fade
+  swipe_prevent_default: true
 
 views:
   # Main tab

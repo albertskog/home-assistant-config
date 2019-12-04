@@ -6,7 +6,6 @@
 !groups
 !groups/views
 !scripts
-!themes
 !.gitignore
 !.HA_VERSION
 !.yamllint
